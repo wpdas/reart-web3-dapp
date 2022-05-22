@@ -6,6 +6,7 @@ pragma solidity ^0.8.0;
 contract Transactions {
   uint256 transactionCount;
 
+  // A function that we're going to emit or call later on
   event Transfer(address from, address receiver, uint amount, string message, uint256 timestamp, string keyword);
 
   // Similar to an object properties like type/instance in TS

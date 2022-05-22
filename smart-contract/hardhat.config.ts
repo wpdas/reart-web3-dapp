@@ -1,22 +1,16 @@
-import { task } from "hardhat/config";
-import "@nomiclabs/hardhat-waffle";
+// hardhat-waffle plugin to build smart contract tests using Waffle in Hardhat, taking advantage of both.
+import '@nomiclabs/hardhat-waffle';
 
-// This is a sample Hardhat task. To learn how to create your own go to
-// https://hardhat.org/guides/create-task.html
-task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
-  const accounts = await hre.ethers.getSigners();
-
-  for (const account of accounts) {
-    console.log(account.address);
-  }
-});
-
-// You need to export an object to set up your config
-// Go to https://hardhat.org/config/ to learn more
-
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
 export default {
-  solidity: "0.8.4",
+  solidity: '0.8.4',
+  networks: {
+    goerli: {
+      url: 'https://eth-goerli.alchemyapi.io/v2/kbBJfDHdVy1aCDxojef36JYAPoALDE3O',
+      // getting account private key: go to metatask -> Account Details -> Click "Export private key" ->
+      // copy the generated private key and past it below
+      accounts: [
+        '807bdd8c7b8aa3b76bfd83362af31f2930af86d667d339d00c3c71df94d6d33c',
+      ],
+    },
+  },
 };
