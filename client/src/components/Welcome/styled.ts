@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { TitleGradient } from '../Gradients';
+import { TitleWithGradient } from '../Typography';
 
 export const Container = styled.div`
   display: flex;
@@ -56,25 +57,7 @@ export const Right = styled.div`
   }
 `;
 
-export const Title = styled(TitleGradient)`
-  font-size: 30px;
-  line-height: 36px;
-  color: ${({ theme }) => theme.color.fontWhite};
-  font-family: ${({ theme }) => theme.font.regularFont};
-  font-weight: 400;
-  padding: 4px 0;
-  margin-bottom: 20px;
-  /* text-align: center; */
-
-  @media only screen and (min-width: 640px) {
-    font-size: 48px;
-    line-height: 1;
-  }
-
-  @media only screen and (min-width: 1020px) {
-    /* text-align: left; */
-  }
-`;
+export const Title = styled(TitleWithGradient)``;
 
 export const Text = styled.p`
   /* text-align: center; */

@@ -14,7 +14,9 @@ const Home: React.FC = () => {
         <Navbar />
         <Welcome />
       </Gradients.GradientBgWelcome>
-      <Services />
+      <Gradients.GradientBgServices>
+        <Services />
+      </Gradients.GradientBgServices>
       <Transactions />
       <Footer />
     </div>
