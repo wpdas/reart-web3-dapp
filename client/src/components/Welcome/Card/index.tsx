@@ -2,6 +2,8 @@ import React from 'react';
 import { BsInfoCircle } from 'react-icons/bs';
 import { SiEthereum } from 'react-icons/si';
 import { useTheme } from '@emotion/react';
+import useTransactionContract from '@app/hooks/useTransactionContract';
+import shortenAddress from '@app/utils/shortenAddress';
 import {
   CardBody,
   CardContent,
@@ -11,12 +13,10 @@ import {
   CardTextSemiBold,
 } from './styled';
 
-type CardProps = {
-  address: string;
-};
-
-const Card: React.FC<CardProps> = ({ address }) => {
+const Card = () => {
   const theme = useTheme();
+  const { currentAccount } = useTransactionContract();
+  const address = shortenAddress(currentAccount || '');
 
   return (
     <CardBody>
@@ -29,7 +29,7 @@ const Card: React.FC<CardProps> = ({ address }) => {
         </CardRow>
 
         <div>
-          <CardText>{address}</CardText>
+          <CardText>{address || 'Address'}</CardText>
           <CardTextSemiBold>Ethereum</CardTextSemiBold>
         </div>
       </CardContent>

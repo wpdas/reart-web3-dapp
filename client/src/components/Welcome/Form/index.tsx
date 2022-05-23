@@ -12,11 +12,11 @@ const Form = () => {
   const { handleChange, sendTransaction, processingTransaction, formData } =
     useTransactionContract();
 
+  const { addressTo, amount, keyword, message } = formData;
+
   const handleSubmit = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
-    const { addressTo, amount, keyword, message } = formData;
-
     event.preventDefault();
 
     if (!addressTo || !amount || !keyword || !message) return;
@@ -26,6 +26,9 @@ const Form = () => {
     });
   };
 
+  const sendButtonEnabled =
+    addressTo && amount && keyword && message && window.ethereum;
+
   return (
     <FormWrapper>
       <Input
@@ -34,28 +37,28 @@ const Form = () => {
         type="text"
         step="0.0001"
         onChange={e => handleChange(e, 'addressTo')}
-        value={formData.addressTo}
+        value={addressTo}
       />
       <Input
         placeholder="Amount (ETH)"
         name="amount"
         type="number"
         onChange={e => handleChange(e, 'amount')}
-        value={formData.amount}
+        value={amount}
       />
       <Input
         placeholder="Keyword (Gif)"
         name="keyword"
         type="text"
         onChange={e => handleChange(e, 'keyword')}
-        value={formData.keyword}
+        value={keyword}
       />
       <Input
         placeholder="Enter Message"
         name="message"
         type="text"
         onChange={e => handleChange(e, 'message')}
-        value={formData.message}
+        value={message}
       />
 
       <Line />
@@ -63,7 +66,7 @@ const Form = () => {
       {processingTransaction ? (
         <Loader />
       ) : (
-        <Button secondary onClick={handleSubmit}>
+        <Button secondary disabled={!sendButtonEnabled} onClick={handleSubmit}>
           Send Now
         </Button>
       )}

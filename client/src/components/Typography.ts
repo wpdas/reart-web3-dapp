@@ -9,6 +9,14 @@ export const H1 = styled.h1`
   font-weight: 500;
 `;
 
+export const H2 = styled.h2`
+  color: ${({ theme }) => theme.color.fontWhite};
+  font-family: ${({ theme }) => theme.font.regularFont};
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 400;
+`;
+
 export const H3 = styled.h3`
   font-size: 18px;
   color: ${({ theme }) => theme.color.fontBlack};

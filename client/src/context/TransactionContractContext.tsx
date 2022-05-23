@@ -99,7 +99,10 @@ export const TransactionContractProvider: React.FC<{
   const checkIfWalletIsConnected = async () => {
     setLoading(true);
     try {
-      if (!ethereum) return alert('Please install MetaMask');
+      if (!ethereum) {
+        setLoading(false);
+        return alert('Please install MetaMask');
+      }
 
       const accounts = await ethereum.request({ method: 'eth_accounts' });
 
@@ -122,7 +125,10 @@ export const TransactionContractProvider: React.FC<{
     setLoading(true);
 
     try {
-      if (!ethereum) return alert('Please install MetaMask');
+      if (!ethereum) {
+        setLoading(false);
+        return alert('Please install MetaMask');
+      }
 
       const accounts = await ethereum.request({
         method: 'eth_requestAccounts',
@@ -139,7 +145,10 @@ export const TransactionContractProvider: React.FC<{
   const sendTransaction = async () => {
     setProcessingTransaction(true);
     try {
-      if (!ethereum) return alert('Please install MetaMask');
+      if (!ethereum) {
+        setProcessingTransaction(false);
+        return alert('Please install MetaMask');
+      }
 
       const { addressTo, amount, keyword, message } = formData;
       const transactionContract = getEthereumContract();

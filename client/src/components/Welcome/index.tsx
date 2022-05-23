@@ -54,7 +54,7 @@ const Welcome = () => {
           </Grid>
         </Left>
         <Right>
-          <Card address="Address" />
+          <Card />
           <Form />
         </Right>
       </Content>

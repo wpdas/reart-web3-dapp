@@ -17,7 +17,9 @@ const Home: React.FC = () => {
       <Gradients.GradientBgServices>
         <Services />
       </Gradients.GradientBgServices>
-      <Transactions />
+      <Gradients.GradientBgTransactions>
+        <Transactions />
+      </Gradients.GradientBgTransactions>
       <Footer />
     </div>
   );

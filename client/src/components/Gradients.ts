@@ -21,6 +21,16 @@ export const GradientBgServices = styled.div`
     radial-gradient(at 50% 100%, hsla(225, 39%, 25%, 1) 0, transparent 50%);
 `;
 
+export const GradientBgTransactions = styled.div`
+  background-color: #0f0e13;
+  background-image: radial-gradient(
+      at 0% 100%,
+      hsla(253, 16%, 7%, 1) 0,
+      transparent 50%
+    ),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 25%, 1) 0, transparent 50%);
+`;
+
 export const TitleGradient = styled.h1`
   background-color: #fff;
   background-image: radial-gradient(
