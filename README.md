@@ -1,6 +1,6 @@
 ## DApp Web3
 
-- MetaTask: Used to create accounts and play over the app;
+- MetaTask: Used to create accounts and play over the app. This project is also using the MetaTask RPC API. [Check out the MetaTask RPC API here] (https://docs.metamask.io/guide/rpc-api.html)
 
 - [Hardhat](https://hardhat.org/): Ethereum development environment. Hardhat is a development environment to compile, deploy, test, and debug your Ethereum software. It helps creating a base environment to work on the project allowing us to run Solidity locally. We use it to test the smart contracts as well. The contract bootstrap was created using this tool using the following command:
 

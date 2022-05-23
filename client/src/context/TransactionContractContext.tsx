@@ -101,7 +101,6 @@ export const TransactionContractProvider: React.FC<{
     try {
       if (!ethereum) return alert('Please install MetaMask');
 
-      // From where this eth_accounts?
       const accounts = await ethereum.request({ method: 'eth_accounts' });
 
       if (accounts.length) {
@@ -125,7 +124,6 @@ export const TransactionContractProvider: React.FC<{
     try {
       if (!ethereum) return alert('Please install MetaMask');
 
-      // From where this eth_accounts?
       const accounts = await ethereum.request({
         method: 'eth_requestAccounts',
       });
