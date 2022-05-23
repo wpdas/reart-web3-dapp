@@ -1,5 +1,6 @@
 import '@emotion/react';
 
+// Emotion theme
 declare module '@emotion/react' {
   export interface Theme {
     color: {
@@ -18,3 +19,13 @@ declare module '@emotion/react' {
     };
   }
 }
+
+// MetaMask ethereum object inside window object
+declare global {
+  interface Window {
+    ethereum: any;
+  }
+}
+
+// Png files
+declare module '*.png';
