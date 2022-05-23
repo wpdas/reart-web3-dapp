@@ -10,6 +10,7 @@ const light: Theme = {
     darkBlue: '#2546bd',
     deepDarkBlue: '#1B2036',
     opaqueBlue: '#3d4f7c',
+    transparentBlue: '#212643cc',
     white: '#ffffff',
   },
   font: {

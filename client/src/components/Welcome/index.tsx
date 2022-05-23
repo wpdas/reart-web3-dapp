@@ -1,4 +1,6 @@
+import useTransactionContract from '@app/hooks/useTransactionContract';
 import Button from '../Button';
+import Loader from '../Loader';
 import Card from './Card';
 import Form from './Form';
 import {
@@ -18,7 +20,7 @@ import {
 } from './styled';
 
 const Welcome = () => {
-  const connectWallet = () => {};
+  const { loading, connectWallet, currentAccount } = useTransactionContract();
 
   return (
     <Container>
@@ -31,9 +33,17 @@ const Welcome = () => {
             Explore the crypto world. Buy and sell cryptocurrencies easily on
             Krypto.
           </Text>
-          <Button type="button" onClick={connectWallet}>
-            Connect Wallet
-          </Button>
+          {!currentAccount && (
+            <>
+              {loading ? (
+                <Loader />
+              ) : (
+                <Button type="button" onClick={connectWallet}>
+                  Connect Wallet
+                </Button>
+              )}
+            </>
+          )}
           <Grid>
             <GridContentTopLeft>Reliability</GridContentTopLeft>
             <GridContentTopCenter>Security</GridContentTopCenter>
