@@ -9,9 +9,8 @@ const useFetchGif = (keyword?: string) => {
   useEffect(() => {
     const fetchGifs = async () => {
       try {
-        const safeKeyword = keyword?.split(' ').join('');
         const response = await fetch(
-          `https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API_KEY}&q=${safeKeyword}&limit=1`,
+          `https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API_KEY}&q=${keyword}&limit=1`,
         );
 
         const { data } = await response.json();

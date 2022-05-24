@@ -43,6 +43,8 @@ const Form = () => {
         placeholder="Amount (ETH)"
         name="amount"
         type="number"
+        step="0.0001"
+        min="0.0001"
         onChange={e => handleChange(e, 'amount')}
         value={amount}
       />
@@ -74,7 +76,7 @@ const Form = () => {
       {showModal && (
         <GlobalPortal>
           <SimpleMessage
-            message="Ether sent successfully!"
+            message="NFT successfully purchased"
             onConfirm={() => {
               setShowModal(false);
             }}

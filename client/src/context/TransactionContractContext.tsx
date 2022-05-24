@@ -9,6 +9,16 @@ type FormData = {
   message: string;
 };
 
+type Transaction = {
+  addressTo: string;
+  addressFrom: string;
+  timestamp: string;
+  timestampDate: Date;
+  message: string;
+  keyword: string;
+  amount: number;
+};
+
 type ContextProps = {
   connectWallet: () => Promise<void>;
   handleChange: (
@@ -21,6 +31,7 @@ type ContextProps = {
   currentAccount?: string;
   loading?: boolean;
   processingTransaction?: boolean;
+  transactions?: Transaction[];
 };
 
 const initialFormData: FormData = {
@@ -73,6 +84,7 @@ export const TransactionContractProvider: React.FC<{
   children: React.ReactChild;
 }> = ({ children }) => {
   const [currentAccount, setCurrentAccount] = useState();
+  const [transactions, setTransactions] = useState();
   const [loading, setLoading] = useState(true);
   const [processingTransaction, setProcessingTransaction] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
@@ -96,6 +108,37 @@ export const TransactionContractProvider: React.FC<{
     }));
   };
 
+  const getAllTransactions = async () => {
+    try {
+      if (!ethereum) {
+        setLoading(false);
+        return alert('Please install MetaMask');
+      }
+
+      const transactionContract = getEthereumContract();
+      const availableTransactions =
+        await transactionContract.getAllTransactions();
+
+      const structuredTransactions = availableTransactions.map(
+        (transaction: any) => ({
+          addressTo: transaction.receiver,
+          addressFrom: transaction.sender,
+          timestamp: new Date(
+            transaction.timestamp.toNumber() * 1000,
+          ).toLocaleString(),
+          timestampDate: new Date(transaction.timestamp.toNumber() * 1000),
+          message: transaction.message,
+          keyword: transaction.keyword,
+          amount: parseInt(transaction.amount._hex) / 10 ** 18,
+        }),
+      );
+
+      setTransactions(structuredTransactions);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const checkIfWalletIsConnected = async () => {
     setLoading(true);
     try {
@@ -108,8 +151,7 @@ export const TransactionContractProvider: React.FC<{
 
       if (accounts.length) {
         setCurrentAccount(accounts[0]);
-
-        //TODO: getAllTransactions();
+        await getAllTransactions();
       } else {
         console.log('No accounts found');
       }
@@ -120,6 +162,26 @@ export const TransactionContractProvider: React.FC<{
       throw new Error('No ethereum object.');
     }
   };
+
+  // const checkIfTransactionsExist = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const transactionContract = getEthereumContract();
+  //     const updatedTransactionCount =
+  //       await transactionContract.getTransactionCount();
+
+  //     // Store current transactionCount
+  //     localStorage.setItem(
+  //       STORAGE_TRANSACTION_COUNT_KEY,
+  //       updatedTransactionCount.toNumber(),
+  //     );
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.log(error);
+  //     setLoading(false);
+  //     throw new Error('No ethereum object.');
+  //   }
+  // };
 
   const connectWallet = async () => {
     setLoading(true);
@@ -195,6 +257,9 @@ export const TransactionContractProvider: React.FC<{
         updatedTransactionCount.toNumber(),
       );
 
+      // Get fresh transactions
+      await getAllTransactions();
+
       // Clear inputs
       setFormData(initialFormData);
 
@@ -217,6 +282,7 @@ export const TransactionContractProvider: React.FC<{
         processingTransaction,
         currentAccount,
         formData,
+        transactions,
         connectWallet,
         setFormData,
         handleChange,

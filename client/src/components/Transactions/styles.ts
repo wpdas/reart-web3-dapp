@@ -18,10 +18,6 @@ export const Content = styled.div`
   justify-content: center;
   padding: 48px 16px;
   width: 100%;
-
-  @media only screen and (min-width: 1020px) {
-    padding: 0 80px 80px;
-  }
 `;
 
 export const Title = styled(H2)`

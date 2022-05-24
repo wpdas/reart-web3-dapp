@@ -1,29 +1,37 @@
 import React from 'react';
+import { BsCoin } from 'react-icons/bs';
+import { useTheme } from '@emotion/react';
 import useFetchGif from '@app/hooks/useFetchGif';
+import dummyData from '@app/utils/dummyData';
 import shortenAddress from '@app/utils/shortenAddress';
+import shortenMessage from '@app/utils/shortenMessage';
 import {
   Amount,
+  AmountWrapper,
   Anchor,
   Container,
   Content,
   Image,
+  ImageInfo,
+  Keyword,
   Message,
   Timestamp,
-  TimestampWrapper,
   Wrapper,
 } from './styles';
 
 type Props = {
+  id: number;
   addressTo: string;
   addressFrom: string;
   timestamp: string;
   message: string;
   keyword?: string;
-  amount: string;
-  url: string;
+  amount: number;
+  url?: string;
 };
 
 const TransactionCard: React.FC<Props> = ({
+  id,
   addressTo,
   addressFrom,
   timestamp,
@@ -32,44 +40,58 @@ const TransactionCard: React.FC<Props> = ({
   amount,
   url,
 }) => {
+  const theme = useTheme();
   const gifUrl = useFetchGif(keyword);
+
   const shortenedAddressFrom = shortenAddress(addressFrom, 4);
   const shortenedAddressTo = shortenAddress(addressTo, 4);
+  const shortenedMessage = shortenMessage(message);
+  const dummyImageUrlForNotFoundCases =
+    dummyData[id - Math.floor(id / dummyData.length)].url;
 
   return (
     <Container>
       <Content>
         <Wrapper>
-          <Anchor
-            href={`https://ropsten.etherscan.io/address/${addressFrom}`}
-            target="_blank"
-            rel="noopener noreferrer">
-            <span>From:</span> {shortenedAddressFrom}
-          </Anchor>
+          <Image
+            src={gifUrl || url || dummyImageUrlForNotFoundCases}
+            alt="gif"
+          />
 
-          <Anchor
-            href={`https://ropsten.etherscan.io/address/${addressTo}`}
-            target="_blank"
-            rel="noopener noreferrer">
-            <span>To:</span> {shortenedAddressTo}
-          </Anchor>
+          <ImageInfo>
+            <Keyword>
+              {keyword ? `${keyword} #${id}` : 'PsychoMolly #8746'}
+            </Keyword>
 
-          <Amount>
-            <span>Amount:</span> {amount} ETH
-          </Amount>
+            <AmountWrapper>
+              <BsCoin size={20} color={theme.color.fontDark} />
+              <Amount>{amount} ETH</Amount>
+            </AmountWrapper>
 
-          {message && (
-            <>
-              <br />
-              <Message>Message: {message}</Message>
-            </>
-          )}
+            <Anchor
+              href={`https://ropsten.etherscan.io/address/${addressFrom}`}
+              target="_blank"
+              rel="noopener noreferrer">
+              <span>From:</span> {shortenedAddressFrom}
+            </Anchor>
 
-          <Image src={gifUrl || url} alt="gif" />
+            <Anchor
+              href={`https://ropsten.etherscan.io/address/${addressTo}`}
+              target="_blank"
+              rel="noopener noreferrer">
+              <span>To:</span> {shortenedAddressTo}
+            </Anchor>
 
-          <TimestampWrapper>
-            <Timestamp>{timestamp}</Timestamp>
-          </TimestampWrapper>
+            {message && (
+              <Message>
+                <span>Message:</span> {shortenedMessage}
+              </Message>
+            )}
+
+            <Timestamp>
+              <span>Timestamp:</span> {timestamp}
+            </Timestamp>
+          </ImageInfo>
         </Wrapper>
       </Content>
     </Container>

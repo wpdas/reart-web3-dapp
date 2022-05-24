@@ -27,11 +27,10 @@ const Welcome = () => {
       <Content>
         <Left>
           <Title>
-            Send Crypto <br /> across the world
+            Buy NFTs <br /> across the world
           </Title>
           <Text>
-            Explore the crypto world. Buy and sell cryptocurrencies easily on
-            Krypt.
+            Explore the crypto world. Buy and sell NFTs easily on Krypt Demo.
           </Text>
           {!currentAccount && (
             <>
