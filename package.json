@@ -1,0 +1,12 @@
+{
+  "name": "reart",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "firebase-deploy": "firebase deploy"
+  },
+  "dependencies": {
+  },
+  "author": "@wendersonpdas - IG",
+  "engines": {"node": "14.18.0"}
+}

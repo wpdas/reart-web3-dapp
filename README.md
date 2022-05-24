@@ -20,8 +20,6 @@ npx hardhat
 
 - Quando um contrato passa pelo deploy, um ABI (Application Binary Interface) é gerado na pasta smart-contract/artifacts/contracts/<NomeDoContrato>/<NomedoContrato>.json. Isso é a maneira padrão para interagir com os contratos dentro do ecossistema Ethereum, ambos, de fora da blockchain e para casos de interação d contrato para contrato. Esse arquivo contem todas as informações sobre uma Smart Contract específica (que foi criada). Esse arquivo deve ser disponibilizado no client.
 
-- BUG: quando conecta, a informação de contas não é exibida. Criar um estado para armazenar a conta ou recarregar a página.
-
 ## Env
 
 .env file with your GIPHY API KEY
@@ -29,3 +27,9 @@ npx hardhat
 ```
 REACT_APP_GIPHY_API_KEY=<your_api_key_here>
 ```
+
+## CD - Firebase
+
+Root package.json usa o Node v14.18.0 para dar suporte aos recursos necessários do Firebase.
+
+Usando Firebase integrado com github actions para fazer deploy toda vez que a branch main for atualizada
