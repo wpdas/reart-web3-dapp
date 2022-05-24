@@ -69,14 +69,14 @@ const TransactionCard: React.FC<Props> = ({
             </AmountWrapper>
 
             <Anchor
-              href={`https://ropsten.etherscan.io/address/${addressFrom}`}
+              href={`https://goerli.etherscan.io/address/${addressFrom}`}
               target="_blank"
               rel="noopener noreferrer">
               <span>From:</span> {shortenedAddressFrom}
             </Anchor>
 
             <Anchor
-              href={`https://ropsten.etherscan.io/address/${addressTo}`}
+              href={`https://goerli.etherscan.io/address/${addressTo}`}
               target="_blank"
               rel="noopener noreferrer">
               <span>To:</span> {shortenedAddressTo}
