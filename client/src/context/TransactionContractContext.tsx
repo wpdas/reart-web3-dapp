@@ -28,6 +28,7 @@ type ContextProps = {
   setFormData: React.Dispatch<React.SetStateAction<FormData>>;
   sendTransaction: () => Promise<void>;
   formData: FormData;
+  transactionCount: number;
   currentAccount?: string;
   loading?: boolean;
   processingTransaction?: boolean;
@@ -55,6 +56,7 @@ const defaultState: ContextProps = {
     throw new Error('sendTransaction must be defined!');
   },
   formData: initialFormData,
+  transactionCount: 0,
 };
 
 const STORAGE_TRANSACTION_COUNT_KEY = 'transactionCount';
@@ -95,7 +97,7 @@ export const TransactionContractProvider: React.FC<{
   );
 
   const [transactionCount, setTransactionCount] = useState(
-    initialTransactionCount || 0,
+    initialTransactionCount ? Number(initialTransactionCount) : 0,
   );
 
   const handleChange = (
@@ -162,26 +164,6 @@ export const TransactionContractProvider: React.FC<{
       throw new Error('No ethereum object.');
     }
   };
-
-  // const checkIfTransactionsExist = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const transactionContract = getEthereumContract();
-  //     const updatedTransactionCount =
-  //       await transactionContract.getTransactionCount();
-
-  //     // Store current transactionCount
-  //     localStorage.setItem(
-  //       STORAGE_TRANSACTION_COUNT_KEY,
-  //       updatedTransactionCount.toNumber(),
-  //     );
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.log(error);
-  //     setLoading(false);
-  //     throw new Error('No ethereum object.');
-  //   }
-  // };
 
   const connectWallet = async () => {
     setLoading(true);
@@ -283,6 +265,7 @@ export const TransactionContractProvider: React.FC<{
         currentAccount,
         formData,
         transactions,
+        transactionCount,
         connectWallet,
         setFormData,
         handleChange,

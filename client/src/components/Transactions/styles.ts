@@ -22,6 +22,12 @@ export const Content = styled.div`
 
 export const Title = styled(H2)`
   margin: 8px 0;
+  display: flex;
+
+  & span {
+    font-size: 16px;
+    margin-left: 12px;
+  }
 `;
 
 export const CardsContainer = styled.div`
