@@ -138,6 +138,17 @@ export const TransactionContractProvider: React.FC<{
       );
 
       setTransactions(structuredTransactions);
+
+      // Get the transaction count provided by the Smart Contract file (Transactions.sol)
+      const updatedTransactionCount =
+        await transactionContract.getTransactionCount();
+      setTransactionCount(updatedTransactionCount.toNumber());
+
+      // Store current transactionCount
+      localStorage.setItem(
+        STORAGE_TRANSACTION_COUNT_KEY,
+        updatedTransactionCount.toNumber(),
+      );
     } catch (error) {
       console.log(error);
     }
@@ -180,6 +191,7 @@ export const TransactionContractProvider: React.FC<{
         method: 'eth_requestAccounts',
       });
       setCurrentAccount(accounts[0]);
+      await getAllTransactions();
       setLoading(false);
     } catch (error) {
       console.log(error);
