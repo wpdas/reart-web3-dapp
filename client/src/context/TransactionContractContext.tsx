@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-console */
 import React, { createContext, useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import { contractAddress, transactionsContractABI } from '@app/utils/constants';
