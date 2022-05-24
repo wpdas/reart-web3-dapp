@@ -20,7 +20,6 @@ export const Content = styled.div`
   width: 100%;
 
   @media only screen and (min-width: 1020px) {
-    /* flex-direction: row; */
     padding: 0 80px 80px;
   }
 `;

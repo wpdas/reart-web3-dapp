@@ -31,7 +31,7 @@ const Welcome = () => {
           </Title>
           <Text>
             Explore the crypto world. Buy and sell cryptocurrencies easily on
-            Krypto.
+            Krypt.
           </Text>
           {!currentAccount && (
             <>

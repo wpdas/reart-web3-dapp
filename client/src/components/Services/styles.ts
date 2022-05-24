@@ -21,7 +21,6 @@ export const Content = styled.div`
 
   @media only screen and (min-width: 1020px) {
     flex-direction: row;
-    /* align-items: flex-start; */
     padding: 80px;
   }
 `;

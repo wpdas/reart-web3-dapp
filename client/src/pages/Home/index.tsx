@@ -20,7 +20,9 @@ const Home: React.FC = () => {
       <Gradients.GradientBgTransactions>
         <Transactions />
       </Gradients.GradientBgTransactions>
-      <Footer />
+      <Gradients.GradientBgFooter>
+        <Footer />
+      </Gradients.GradientBgFooter>
     </div>
   );
 };
