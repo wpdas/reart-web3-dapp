@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "firebase-deploy": "cd client ; yarn build ; cd .. ; firebase deploy"
+    "firebase-deploy": "cd client ; npm run build ; cd .. ; firebase deploy"
   },
   "dependencies": {
   },
