@@ -1,5 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
+
+/**
+ * TODO:
+ * ethereum.on('disconnect', handler: (error: ProviderRpcError) => void);
+ */
+
 import React, { createContext, useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import bigNumberToNumber from '@app/utils/bigNumberToNumber';
@@ -101,7 +107,7 @@ export const TransactionContractProvider: React.FC<{
   children: React.ReactChild;
 }> = ({ children }) => {
   const [currentAccount, setCurrentAccount] = useState();
-  const [transactions, setTransactions] = useState();
+  const [transactions, setTransactions] = useState<Transaction[]>();
   const [loading, setLoading] = useState(true);
   const [processingTransaction, setProcessingTransaction] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
@@ -136,7 +142,7 @@ export const TransactionContractProvider: React.FC<{
       const availableTransactions =
         await transactionContract.getAllTransactions();
 
-      const structuredTransactions = availableTransactions.map(
+      const structuredTransactions: Transaction[] = availableTransactions.map(
         (transaction: any) => ({
           addressTo: transaction.receiver,
           addressFrom: transaction.sender,
@@ -150,7 +156,20 @@ export const TransactionContractProvider: React.FC<{
         }),
       );
 
-      setTransactions(structuredTransactions);
+      // Get current account
+      const [account] = await ethereum.request({ method: 'eth_accounts' });
+
+      // Filter to get only transactions made by the current account
+      // Filter the timestamp too: it should get only the transactions made
+      // after version 1 release.
+      const startDate = new Date(2022, 4, 25, 0, 0, 0);
+      const filteredByAddressFromTransactions = structuredTransactions.filter(
+        transaction =>
+          transaction.addressFrom.toLowerCase() === account &&
+          transaction.timestampDate.getTime() > startDate.getTime(),
+      );
+
+      setTransactions(filteredByAddressFromTransactions);
 
       // Get the transaction count provided by the Smart Contract file (Transactions.sol)
       const updatedTransactionCount =
