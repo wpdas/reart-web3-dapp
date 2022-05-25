@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; md */
   justify-content: space-between;
   align-items: center;
 
@@ -14,8 +13,6 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  /* flex-direction: column; */
-  /* flex-direction: row; sm */
   align-items: center;
   justify-content: center;
   margin: 16px 0px;
@@ -39,7 +36,7 @@ export const LogoWrapper = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 128px;
+  width: 146px;
 `;
 
 export const Menu = styled.div`
@@ -48,10 +45,7 @@ export const Menu = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  /* margin-top: 20px; */
   width: 100%;
-
-  /* margin-top: 0; sm */
 
   @media only screen and (min-width: 640px) {
     display: flex;

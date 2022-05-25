@@ -6,8 +6,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 18px 32px;
-  /* max-width: 1280px; */
-  max-width: 1120px;
+  max-width: 1280px;
   margin: auto;
 
   @media only screen and (min-width: 768px) {
@@ -26,7 +25,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 128px;
+  width: 146px;
   cursor: pointer;
 `;
 
@@ -77,15 +76,17 @@ export const ListMobile = styled.ul`
 type ListItemProps = {
   withBg?: boolean;
   mobileNav?: boolean;
+  bold?: boolean;
+  usePurpleBg?: boolean;
 };
 
 export const ListItem = styled.li<ListItemProps>`
   color: ${({ theme }) => theme.color.fontWhite};
 
-  ${({ withBg, theme }) =>
+  ${({ withBg, theme, usePurpleBg }) =>
     withBg &&
     `
-    background-color: ${theme.color.blue};
+    background-color: ${usePurpleBg ? theme.color.purple : theme.color.blue};
     padding: 8px 28px;
     border-radius: 100px;
   `}
@@ -101,14 +102,18 @@ export const ListItem = styled.li<ListItemProps>`
   font-family: ${({ theme }) => theme.font.regularFont};
   margin: 16px;
   cursor: pointer;
+  ${({ usePurpleBg }) => usePurpleBg && 'cursor: default;'};
 
   &:hover {
-    background-color: ${({ theme, withBg }) => withBg && theme.color.darkBlue};
+    background-color: ${({ theme, withBg, usePurpleBg }) =>
+      withBg && !usePurpleBg && theme.color.darkBlue};
   }
 
   &:last-child {
     ${({ mobileNav }) => !mobileNav && 'margin-right: 0'};
   }
+
+  ${({ bold }) => bold && 'font-weight: 600;'};
 `;
 
 export const MobileMenu = styled.div`

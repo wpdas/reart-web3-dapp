@@ -10,3 +10,11 @@ import transactionsAbi from './contracts/Transactions.json';
 
 export const transactionsContractABI = transactionsAbi.abi;
 export const contractAddress = '0x7a07a66173fdD6AbBEd3E43222eDBDc5FaCad76B';
+
+// Links
+export const navLinks = [
+  { label: 'Collection', to: '/collection', external: false },
+  { label: 'My NFTs', to: '/my-nfts', external: false },
+  { label: 'Git Repo', to: '/', external: false },
+  { label: 'MetaMask', to: 'https://metamask.io/', external: true },
+];

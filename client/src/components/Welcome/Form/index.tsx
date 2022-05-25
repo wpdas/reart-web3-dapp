@@ -35,7 +35,6 @@ const Form = () => {
         placeholder="Address To"
         name="addressTo"
         type="text"
-        step="0.0001"
         onChange={e => handleChange(e, 'addressTo')}
         value={addressTo}
       />
@@ -49,7 +48,7 @@ const Form = () => {
         value={amount}
       />
       <Input
-        placeholder="Keyword (Gif)"
+        placeholder="NFT Keyword (Gif)"
         name="keyword"
         type="text"
         onChange={e => handleChange(e, 'keyword')}

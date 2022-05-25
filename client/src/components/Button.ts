@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 type ButtonProps = {
   secondary?: boolean;
+  useDisabledPurpleBg?: boolean;
 };
 
 const Button = styled.button<ButtonProps>`
@@ -35,7 +36,15 @@ const Button = styled.button<ButtonProps>`
   }
 
   &:disabled {
-    opacity: 0.4;
+    cursor: default;
+    ${({ useDisabledPurpleBg, theme }) =>
+      useDisabledPurpleBg
+        ? `background-color: ${theme.color.purple}; opacity: 1;`
+        : 'opacity: 0.4;'}
+  }
+
+  & svg {
+    margin-right: 12px;
   }
 `;
 

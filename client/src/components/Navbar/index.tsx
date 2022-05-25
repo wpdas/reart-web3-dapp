@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
+import { BiCompass } from 'react-icons/bi';
 import { HiMenuAlt4 } from 'react-icons/hi';
-import logo from '@app/assets/images/logo.png';
+import { useHistory } from 'react-router-dom';
+import logo from '@app/assets/images/reart-logo.svg';
+import useTransactionContract from '@app/hooks/useTransactionContract';
+import { navLinks } from '@app/utils/constants';
 import {
   Image,
   Nav,
@@ -12,21 +16,51 @@ import {
   ListMobile,
 } from './styles';
 
-const items = ['Market', 'Exchange', 'Tutorials', 'Wallets'];
-
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const { loading, currentAccount, connectWallet } = useTransactionContract();
+  const history = useHistory();
+
+  const onClickConnectHandler = () => {
+    if (!currentAccount) {
+      connectWallet();
+    }
+  };
+
+  const onClickLogoHandler = () => {
+    history.push('/');
+  };
+
+  const onClickItemHandler = (to: string, isExternal: boolean) => {
+    if (!isExternal) {
+      return history.push(to);
+    }
+
+    window.open(to, '_blank');
+  };
 
   return (
     <Nav>
       <ImageWrapper>
-        <Image src={logo} alt="logo" />
+        <Image src={logo} alt="logo" onClick={onClickLogoHandler} />
       </ImageWrapper>
       <List>
-        {items.map((item, index) => (
-          <ListItem key={item + index}>{item}</ListItem>
+        {navLinks.map((link, index) => (
+          <ListItem
+            key={link.label + index}
+            onClick={() => {
+              onClickItemHandler(link.to, link.external);
+            }}>
+            {link.label}
+          </ListItem>
         ))}
-        <ListItem withBg>Login</ListItem>
+        <ListItem
+          usePurpleBg={!!currentAccount}
+          withBg
+          bold
+          onClick={onClickConnectHandler}>
+          {loading ? <BiCompass /> : !!currentAccount ? 'Connected' : 'Connect'}
+        </ListItem>
       </List>
       <MobileMenu>
         {toggleMenu ? (
@@ -41,9 +75,14 @@ const Navbar = () => {
               fontSize={28}
               onClick={() => setToggleMenu(false)}
             />
-            {items.map((item, index) => (
-              <ListItem key={item + index} mobileNav>
-                {item}
+            {navLinks.map((link, index) => (
+              <ListItem
+                key={link.label + index}
+                mobileNav
+                onClick={() => {
+                  onClickItemHandler(link.to, link.external);
+                }}>
+                {link.label}
               </ListItem>
             ))}
           </ListMobile>

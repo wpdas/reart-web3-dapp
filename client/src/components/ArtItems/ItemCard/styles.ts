@@ -7,9 +7,13 @@ export const Container = styled.div`
   background-color: #181918;
   margin: 16px;
   border-radius: 6px;
-
   min-width: 270px;
   max-width: 270px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05, 1.05);
+  }
 `;
 
 export const Content = styled.div`
@@ -62,7 +66,8 @@ export const Amount = styled.p`
 
 export const Message = styled(Amount)`
   font-size: 12px;
-  line-height: 24px;
+  line-height: 18px;
+  min-height: 36px;
 `;
 
 export const Keyword = styled(Amount)`
@@ -76,6 +81,13 @@ export const Image = styled.img`
   border-bottom-left-radius: 0%;
   border-bottom-right-radius: 0%;
   object-fit: cover;
+
+  background: rgb(139, 40, 227);
+  background: linear-gradient(
+    180deg,
+    rgba(139, 40, 227, 1) 0%,
+    rgba(193, 133, 173, 1) 100%
+  );
 `;
 
 export const Timestamp = styled.p`
