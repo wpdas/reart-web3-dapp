@@ -16,7 +16,7 @@ contract Transactions {
     uint amount;
     string message;
     uint256 timestamp;
-    string keyword;
+    string keyword; // going to be used to store the image id
   }
 
   // Array of TransferStruct

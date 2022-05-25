@@ -15,6 +15,7 @@ declare module '@emotion/react' {
       readonly transparentBlue: string;
       readonly white: string;
       readonly purple: string;
+      readonly pink: string;
     };
     font: {
       readonly regularFont: string;

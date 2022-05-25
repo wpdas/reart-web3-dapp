@@ -15,6 +15,15 @@ export const contractAddress = '0x7a07a66173fdD6AbBEd3E43222eDBDc5FaCad76B';
 export const navLinks = [
   { label: 'Collection', to: '/collection', external: false },
   { label: 'My NFTs', to: '/my-nfts', external: false },
-  { label: 'Git Repo', to: '/', external: false },
+  {
+    label: 'Git Repo',
+    to: 'https://github.com/Wpdas/reart-web3-dapp',
+    external: true,
+  },
+  {
+    label: 'LinkedIn',
+    to: 'https://www.linkedin.com/in/wenderson-pires-silva/?locale=en_US',
+    external: true,
+  },
   { label: 'MetaMask', to: 'https://metamask.io/', external: true },
 ];

@@ -39,3 +39,9 @@ Usando Firebase integrado com github actions para fazer deploy toda vez que a br
 ## Logo
 
 - Reart Logo - by [Bruno Teodoro](https://www.linkedin.com/in/brunoteodoro/)
+
+## TODO:
+
+- Views (nos detalhes e nos cards das collections)
+- Comprar (Details)
+- Exibir Cards comprados (usando dados atualizados como image ID)

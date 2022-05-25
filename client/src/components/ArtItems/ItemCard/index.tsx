@@ -1,9 +1,11 @@
 import React from 'react';
 import { BsCoin } from 'react-icons/bs';
+import { useHistory } from 'react-router-dom';
 import { useTheme } from '@emotion/react';
 import useFetchGif from '@app/hooks/useFetchGif';
 import { GifData } from '@app/hooks/useFetchGifItems';
 import dummyData from '@app/utils/dummyData';
+import getFakePriceByDatetime from '@app/utils/getFakePriceByDatetime';
 import shortenAddress from '@app/utils/shortenAddress';
 import shortenMessage from '@app/utils/shortenMessage';
 import {
@@ -30,17 +32,16 @@ const ItemCard: React.FC<Props> = ({
   importDatetime,
   url,
 }) => {
+  const history = useHistory();
   const theme = useTheme();
-  const fakePriceByDatetime = importDatetime.getTime().toString();
-  const value = fakePriceByDatetime.slice(
-    fakePriceByDatetime.length - 5,
-    fakePriceByDatetime.length - 3,
-  );
+  const price = getFakePriceByDatetime(importDatetime);
 
-  const safePrice = value === '00' ? 0.0015 : Number(`0.00${value}`);
+  const clickItemHandler = () => {
+    history.push(`/details/${id}`);
+  };
 
   return (
-    <Container>
+    <Container onClick={clickItemHandler}>
       <Content>
         <Wrapper>
           <Image src={url} alt="gif" />
@@ -52,7 +53,7 @@ const ItemCard: React.FC<Props> = ({
 
             <AmountWrapper>
               <BsCoin size={20} color={theme.color.fontDark} />
-              <Amount>{safePrice} ETH</Amount>
+              <Amount>{price} ETH</Amount>
             </AmountWrapper>
 
             <Message>

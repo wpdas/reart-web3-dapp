@@ -30,6 +30,7 @@ export const Body = styled.div`
 
 export const Paragraph = styled(P)`
   font-size: 16px;
+  color: ${({ theme }) => theme.color.fontDark};
 `;
 
 export const CustomButton = styled(Button)`

@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import logo from '@app/assets/images/reart-logo.svg';
+import logo from '@app/assets/images/reart-logo-white.svg';
 import { navLinks } from '@app/utils/constants';
 import {
   ContactInfo,

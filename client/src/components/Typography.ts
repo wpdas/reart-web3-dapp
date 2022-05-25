@@ -46,7 +46,7 @@ export const TitleWithGradient = styled(TitleGradient)`
 
 export const P = styled.p`
   font-size: 14px;
-  color: ${({ theme }) => theme.color.fontDark};
+  color: ${({ theme }) => theme.color.fontWhite};
   font-family: ${({ theme }) => theme.font.regularFont};
   line-height: 24px;
 `;

@@ -80,7 +80,6 @@ export const InfoParagraph = styled.p`
 `;
 
 export const Line = styled.div`
-  /* width: 90%; sm*/
   width: 100%;
   height: 0.25px;
   background-color: gray;
@@ -88,7 +87,6 @@ export const Line = styled.div`
 `;
 
 export const Copyright = styled.div`
-  /* width: 90%; sm*/
   width: 100%;
   display: flex;
   justify-content: space-between;
