@@ -1,6 +1,6 @@
 {
   "name": "reart-client",
-  "version": "0.1.5",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "react-app-rewired start",

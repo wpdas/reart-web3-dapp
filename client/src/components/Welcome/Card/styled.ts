@@ -6,7 +6,6 @@ export const CardBody = styled.div`
   padding: 12px;
   align-items: flex-start;
   height: 160px;
-  /* width: 100%; */
   width: 288px;
   margin: 20px 0%;
 

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { roundedWhite } from '../../glassmorphisms';
-import { H1, P, TitleWithGradient } from '../../Typography';
+import { H1, P } from '../../Typography';
 
 export const ServiceCardContainer = styled.div`
   display: flex;
@@ -45,8 +45,4 @@ export const CardSubtitle = styled(P)`
   margin-bottom: 8px;
   font-size: 14px;
   line-height: 20px;
-
-  /* @media only screen and (min-width: 768px) {
-    width: 75%;
-  } */
 `;
