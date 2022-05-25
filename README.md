@@ -1,4 +1,4 @@
-## DApp Web3
+## <img alt="Reart Logo" src="./client/src/assets/images/reart-logo.svg" width="230" />
 
 - MetaTask: Used to create accounts and play over the app. This project is also using the MetaTask RPC API. [Check out the MetaTask RPC API here] (https://docs.metamask.io/guide/rpc-api.html)
 
