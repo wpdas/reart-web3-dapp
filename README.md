@@ -35,3 +35,7 @@ recursos: Firestore Database, Hosting
 Root package.json usa o Node v14.18.0 para dar suporte aos recursos necessários do Firebase.
 
 Usando Firebase integrado com github actions para fazer deploy toda vez que a branch main for atualizada.
+
+## Logo
+
+Logo feita por Bruno Teodoro
