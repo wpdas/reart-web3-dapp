@@ -38,4 +38,4 @@ Usando Firebase integrado com github actions para fazer deploy toda vez que a br
 
 ## Logo
 
-Logo feita por Bruno Teodoro
+- Reart Logo - by [Bruno Teodoro](https://www.linkedin.com/in/brunoteodoro/)
