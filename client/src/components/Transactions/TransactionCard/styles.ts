@@ -7,9 +7,13 @@ export const Container = styled.div`
   background-color: #181918;
   margin: 16px;
   border-radius: 6px;
-
   min-width: 270px;
   max-width: 270px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05, 1.05);
+  }
 `;
 
 export const Content = styled.div`

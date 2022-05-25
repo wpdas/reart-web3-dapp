@@ -6,18 +6,17 @@ import {
   Transactions,
   Welcome,
 } from '@app/components';
+import useTransactionContract from '@app/hooks/useTransactionContract';
 
 const MyNFTs: React.FC = () => {
+  const { currentAccount } = useTransactionContract();
+
   return (
-    <div>
-      <Gradients.GradientBgTransactions>
-        <Navbar />
-        <Transactions />
-      </Gradients.GradientBgTransactions>
-      <Gradients.GradientBgFooter>
-        <Footer />
-      </Gradients.GradientBgFooter>
-    </div>
+    <Gradients.GradientBgTransactions>
+      <Navbar />
+      <Transactions />
+      {!!currentAccount && <Footer />}
+    </Gradients.GradientBgTransactions>
   );
 };
 

@@ -29,27 +29,24 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
-export const Anchor = styled.a`
-  color: ${({ theme }) => theme.color.fontBlack};
-  font-family: ${({ theme }) => theme.font.regularFont};
-  font-size: 12px;
-  line-height: 24px;
-  text-decoration: none;
-
-  & span {
-    font-weight: 600;
-  }
-`;
-
 export const AmountWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 34px;
-  margin-top: 6px;
+  margin-bottom: 2px;
 
   & svg {
     margin-right: 8px;
   }
+`;
+
+export const ViewsWrapper = styled(AmountWrapper)``;
+
+export const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  margin-top: 6px;
 `;
 
 export const Amount = styled.p`
@@ -70,6 +67,11 @@ export const Message = styled(Amount)`
   min-height: 36px;
 `;
 
+export const Creator = styled(Message)`
+  min-height: auto;
+  margin-bottom: 4px;
+`;
+
 export const Keyword = styled(Amount)`
   font-weight: 600;
 `;
@@ -88,18 +90,6 @@ export const Image = styled.img`
     rgba(139, 40, 227, 1) 0%,
     rgba(193, 133, 173, 1) 100%
   );
-`;
-
-export const Timestamp = styled.p`
-  font-family: ${({ theme }) => theme.font.regularFont};
-  color: ${({ theme }) => theme.color.fontBlack};
-  font-size: 12px;
-  line-height: 24px;
-  margin: 0;
-
-  & span {
-    font-weight: 600;
-  }
 `;
 
 export const ImageInfo = styled.div`

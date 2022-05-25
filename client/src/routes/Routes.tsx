@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Collection from '@app/pages/Collection';
 import Details from '@app/pages/Details';
 import Home from '@app/pages/Home';
+import MyNFTDetails from '@app/pages/MyNFTDetails';
 import MyNFTs from '@app/pages/MyNFTs';
 
 const Routes: React.FC = () => {
@@ -11,6 +12,7 @@ const Routes: React.FC = () => {
       <Route path="/my-nfts" component={MyNFTs} />
       <Route path="/collection" component={Collection} />
       <Route path="/details/:id" component={Details} />
+      <Route path="/my-nft/:id" component={MyNFTDetails} />
       <Route path="/" component={Home} />
       <Route path="*">
         <Redirect to="/" />

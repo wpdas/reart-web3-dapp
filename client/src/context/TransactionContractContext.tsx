@@ -3,7 +3,11 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import bigNumberToNumber from '@app/utils/bigNumberToNumber';
-import { contractAddress, transactionsContractABI } from '@app/utils/constants';
+import {
+  contractAddress,
+  defaultPlatformAccountToken,
+  transactionsContractABI,
+} from '@app/utils/constants';
 
 type FormData = {
   addressTo: string;
@@ -30,6 +34,11 @@ type ContextProps = {
   ) => void;
   setFormData: React.Dispatch<React.SetStateAction<FormData>>;
   sendTransaction: () => Promise<void>;
+  buyNFTTransaction: (transactionInformation: {
+    amount: number;
+    id: string;
+    desc: string;
+  }) => Promise<void>;
   formData: FormData;
   transactionCount: number;
   currentAccount?: string;
@@ -57,6 +66,9 @@ const defaultState: ContextProps = {
   },
   sendTransaction: () => {
     throw new Error('sendTransaction must be defined!');
+  },
+  buyNFTTransaction: () => {
+    throw new Error('buyNFTTransaction must be defined!');
   },
   formData: initialFormData,
   transactionCount: 0,
@@ -268,6 +280,77 @@ export const TransactionContractProvider: React.FC<{
     }
   };
 
+  const buyNFTTransaction = async (transactionInformation: {
+    amount: number;
+    id: string;
+    desc: string;
+  }) => {
+    setProcessingTransaction(true);
+    try {
+      if (!ethereum) {
+        setProcessingTransaction(false);
+        return alert('Please install MetaMask');
+      }
+
+      const { amount, id, desc } = transactionInformation;
+      const transactionContract = getEthereumContract();
+      // converts amount type to hex
+      const parsedAmount = ethers.utils.parseEther(amount.toString());
+
+      await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [
+          {
+            from: currentAccount,
+            to: defaultPlatformAccountToken,
+            // hex type. To get to know the value in Ether, go to https://www.rapidtables.com/convert/number/hex-to-decimal.html
+            // convert the value, copy the decimal value, go to https://eth-converter.com/
+            // past it on Gwei field. You'll get the value in Ether.
+            gas: '0x5208', // 21000 GWEI,
+            value: parsedAmount._hex, // GWEI or hex
+          },
+        ],
+      });
+
+      // This is the methods provided by the Smart Contract file (Transactions.sol)
+      // Transactions.sol -> addToBlockchain expected props: address, amount, message, keyword
+      const transactionHash = await transactionContract.addToBlockchain(
+        defaultPlatformAccountToken,
+        parsedAmount,
+        desc,
+        id,
+      );
+
+      console.log(`Loading / Mining - ${transactionHash.hash}`);
+      await transactionHash.wait(); // wait until the transaction is mined
+
+      console.log(`Success - ${transactionHash.hash}`);
+
+      // Get the transaction count provided by the Smart Contract file (Transactions.sol)
+      const updatedTransactionCount =
+        await transactionContract.getTransactionCount();
+      setTransactionCount(updatedTransactionCount.toNumber());
+
+      // Store current transactionCount
+      localStorage.setItem(
+        STORAGE_TRANSACTION_COUNT_KEY,
+        updatedTransactionCount.toNumber(),
+      );
+
+      // Get fresh transactions
+      await getAllTransactions();
+
+      // Clear inputs
+      setFormData(initialFormData);
+
+      setProcessingTransaction(false);
+    } catch (error) {
+      console.log(error);
+      setProcessingTransaction(false);
+      throw new Error('No ethereum object.');
+    }
+  };
+
   useEffect(() => {
     checkIfWalletIsConnected();
   }, []);
@@ -285,6 +368,7 @@ export const TransactionContractProvider: React.FC<{
         setFormData,
         handleChange,
         sendTransaction,
+        buyNFTTransaction,
       }}>
       {children}
     </TransactionContractContext.Provider>

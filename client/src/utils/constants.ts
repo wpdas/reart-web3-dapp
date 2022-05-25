@@ -11,6 +11,10 @@ import transactionsAbi from './contracts/Transactions.json';
 export const transactionsContractABI = transactionsAbi.abi;
 export const contractAddress = '0x7a07a66173fdD6AbBEd3E43222eDBDc5FaCad76B';
 
+// Account 2 (MetaMask, Goerli Network) - The account that is going to receive all the ETH when someone buy a NFT.
+export const defaultPlatformAccountToken =
+  '0x25ef8E53D64a4FD5E3B004e7fC675e81300a381D';
+
 // Links
 export const navLinks = [
   { label: 'Collection', to: '/collection', external: false },

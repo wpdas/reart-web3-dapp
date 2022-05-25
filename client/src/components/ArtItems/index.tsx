@@ -1,5 +1,6 @@
 import React from 'react';
 import { GifData } from '@app/hooks/useFetchGifItems';
+import Loader from '../Loader';
 import ItemCard from './ItemCard';
 import {
   CardsContainer,
@@ -26,7 +27,7 @@ const ArtItems: React.FC<Props> = ({ arts }) => {
         </TitleWrapper>
 
         <CardsContainer>
-          {hasArts &&
+          {hasArts ? (
             arts
               // .sort(
               //   (artA, artB) =>
@@ -34,7 +35,10 @@ const ArtItems: React.FC<Props> = ({ arts }) => {
               // )
               .map((art, index) => (
                 <ItemCard index={index} key={art.id} {...art} />
-              ))}
+              ))
+          ) : (
+            <Loader />
+          )}
         </CardsContainer>
       </Content>
     </Container>

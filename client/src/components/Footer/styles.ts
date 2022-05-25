@@ -18,7 +18,7 @@ export const Content = styled.div`
   margin: 16px 0px;
   width: 100%;
 
-  @media only screen and (min-width: 640px) {
+  @media only screen and (min-width: 932px) {
     justify-content: space-between;
   }
 `;
@@ -30,7 +30,7 @@ export const LogoWrapper = styled.div`
   align-items: center;
   margin-right: 0;
 
-  @media only screen and (min-width: 640px) {
+  @media only screen and (min-width: 932px) {
     margin-right: 128px;
   }
 `;
@@ -47,7 +47,7 @@ export const Menu = styled.div`
   align-items: center;
   width: 100%;
 
-  @media only screen and (min-width: 640px) {
+  @media only screen and (min-width: 932px) {
     display: flex;
   }
 `;

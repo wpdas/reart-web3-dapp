@@ -18,8 +18,8 @@ const Transactions = () => {
       <Content>
         {currentAccount ? (
           <TitleWrapper>
-            <Title>Your most recent NFTs</Title>
-            <TitleSmall>(you own {transactionCount} NFTs)</TitleSmall>
+            <Title>Your NFTs</Title>
+            {/* <TitleSmall>(you own {transactionCount} NFTs)</TitleSmall> */}
           </TitleWrapper>
         ) : (
           <Title>Connect your account to see your NFT collection</Title>

@@ -7,6 +7,10 @@ const useFetchGifById = (id?: string) => {
   const [gifUrl, setGifUrl] = useState('');
   const [creator, setCreator] = useState('');
   const [datetime, setDatetime] = useState<Date>();
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [hasError, setHasError] = useState(false);
+  const [status, setStatus] = useState<'pending' | 'ready'>('pending');
 
   useEffect(() => {
     const fetchGif = async () => {
@@ -16,9 +20,18 @@ const useFetchGifById = (id?: string) => {
         );
 
         const { data } = await response.json();
-        setGifUrl(data?.images?.downsized_medium?.url);
-        setCreator(data?.username);
-        setDatetime(new Date(data?.import_datetime));
+
+        if (data?.images) {
+          setGifUrl(data?.images?.downsized_medium?.url);
+          setCreator(data?.username);
+          setDatetime(new Date(data?.import_datetime));
+          setTitle(data?.user?.display_name);
+          setDescription(data?.title);
+          setStatus('ready');
+        } else {
+          setHasError(true);
+          setStatus('ready');
+        }
       } catch (error) {
         console.log(error);
       }
@@ -33,6 +46,10 @@ const useFetchGifById = (id?: string) => {
     gifUrl,
     creator,
     datetime,
+    title,
+    description,
+    hasError,
+    status,
   };
 };
 

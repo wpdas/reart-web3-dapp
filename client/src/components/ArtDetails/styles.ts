@@ -14,7 +14,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   padding: 48px 16px;
   width: 100%;
@@ -22,12 +22,17 @@ export const Content = styled.div`
 
   @media only screen and (min-width: 1020px) {
     flex-direction: row;
+    align-items: flex-start;
     padding: 80px;
   }
 `;
 
 export const Left = styled.div`
   min-width: 48%;
+
+  @media only screen and (min-width: 1020px) {
+    margin-right: 4%;
+  }
 `;
 
 export const Image = styled.img`
@@ -48,12 +53,23 @@ export const Right = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   min-width: 48%;
+  margin-top: 32px;
+
+  @media only screen and (min-width: 1020px) {
+    margin-top: 0;
+  }
 `;
 
 export const ImageId = styled(H1)`
-  font-size: 30px;
+  font-size: 18px;
   font-weight: 700;
   margin-top: 0;
+  font-size: 24px;
+  text-align: left;
+
+  @media only screen and (min-width: 1020px) {
+    font-size: 30px;
+  }
 `;
 
 export const InfoBox = styled.div`
@@ -95,6 +111,10 @@ export const Info = styled(H1)`
   }
 `;
 
+export const InfoLineBreak = styled(Info)`
+  line-break: anywhere;
+`;
+
 export const InfoLarge = styled(Info)`
   font-size: 30px !important;
   font-weight: 700;
@@ -128,4 +148,11 @@ export const ConnectInfo = styled(P)`
   border-radius: 100px;
   text-align: center;
   font-weight: 600;
+  margin-bottom: 12px;
+`;
+
+export const Anchor = styled.a`
+  color: ${({ theme }) => theme.color.fontBlack};
+  font-family: ${({ theme }) => theme.font.regularFont};
+  text-decoration: none;
 `;

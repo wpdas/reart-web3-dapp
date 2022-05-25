@@ -1,8 +1,8 @@
 import React from 'react';
 import { BsCoin } from 'react-icons/bs';
+import { useHistory } from 'react-router-dom';
 import { useTheme } from '@emotion/react';
-import useFetchGif from '@app/hooks/useFetchGif';
-import dummyData from '@app/utils/dummyData';
+import useFetchGifById from '@app/hooks/useFetchGifById';
 import shortenAddress from '@app/utils/shortenAddress';
 import shortenMessage from '@app/utils/shortenMessage';
 import {
@@ -41,27 +41,27 @@ const TransactionCard: React.FC<Props> = ({
   url,
 }) => {
   const theme = useTheme();
-  const gifUrl = useFetchGif(keyword);
+  const history = useHistory();
+  const { gifUrl, title } = useFetchGifById(keyword);
+
+  if (!gifUrl) return null;
 
   const shortenedAddressFrom = shortenAddress(addressFrom, 4);
   const shortenedAddressTo = shortenAddress(addressTo, 4);
   const shortenedMessage = shortenMessage(message);
-  const dummyImageUrlForNotFoundCases =
-    dummyData[id - Math.floor(id / dummyData.length)].url;
+
+  const clickItemHandler = () => {
+    history.push(`/my-nft/${keyword}`);
+  };
 
   return (
-    <Container>
+    <Container onClick={clickItemHandler}>
       <Content>
         <Wrapper>
-          <Image
-            src={gifUrl || url || dummyImageUrlForNotFoundCases}
-            alt="gif"
-          />
+          <Image src={gifUrl} alt="gif" />
 
           <ImageInfo>
-            <Keyword>
-              {keyword ? `${keyword} #${id}` : 'PsychoMolly #8746'}
-            </Keyword>
+            <Keyword>{title ? `${title} #${id}` : 'PsychoMolly #8746'}</Keyword>
 
             <AmountWrapper>
               <BsCoin size={20} color={theme.color.fontDark} />

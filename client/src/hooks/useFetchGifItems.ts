@@ -9,6 +9,7 @@ export type GifData = {
   title: string;
   description: string;
   importDatetime: Date;
+  creator: string;
   url?: string;
 };
 
@@ -68,6 +69,7 @@ const useFetchGifItems = (
                 : gifData.title,
               importDatetime: new Date(gifData.import_datetime),
               url: gifData.images?.downsized_medium?.url,
+              creator: gifData.username,
             } as GifData;
           },
         );

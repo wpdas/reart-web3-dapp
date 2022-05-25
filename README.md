@@ -45,3 +45,5 @@ Usando Firebase integrado com github actions para fazer deploy toda vez que a br
 - Views (nos detalhes e nos cards das collections)
 - Comprar (Details)
 - Exibir Cards comprados (usando dados atualizados como image ID)
+
+- Descrever no README os recursos como telas, o que cada uma faz e etc

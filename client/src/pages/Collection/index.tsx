@@ -12,11 +12,7 @@ const Collection: React.FC = () => {
         <Navbar />
         {gifs && <ArtItems arts={gifs} />}
       </Gradients.GradientBgTransactions>
-      {gifs && (
-        <Gradients.GradientBgFooter>
-          <Footer />
-        </Gradients.GradientBgFooter>
-      )}
+      {gifs && <Footer />}
     </div>
   );
 };

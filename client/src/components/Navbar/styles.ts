@@ -9,7 +9,7 @@ export const Nav = styled.nav`
   max-width: 1280px;
   margin: auto;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 932px) {
     padding-top: 0px;
   }
 `;
@@ -18,7 +18,7 @@ export const ImageWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 932px) {
     flex: 0.5;
     justify-content: center;
   }
@@ -42,7 +42,7 @@ export const List = styled.ul<ListProps>`
   color: ${({ theme }) => theme.color.fontWhite};
   margin: 0;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 932px) {
     flex-direction: row;
     display: flex;
   }
@@ -68,7 +68,7 @@ export const ListMobile = styled.ul`
     align-self: flex-start;
   }
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 932px) {
     display: none;
   }
 `;
@@ -120,7 +120,7 @@ export const MobileMenu = styled.div`
   display: flex;
   position: relative;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 932px) {
     display: none;
   }
 
@@ -128,7 +128,7 @@ export const MobileMenu = styled.div`
     color: ${({ theme }) => theme.color.fontWhite};
     cursor: pointer;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 932px) {
       flex-direction: row;
       display: none;
     }
