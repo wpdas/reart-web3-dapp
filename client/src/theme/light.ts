@@ -12,6 +12,7 @@ const light: Theme = {
     opaqueBlue: '#3d4f7c',
     transparentBlue: '#212643cc',
     white: '#ffffff',
+    purple: '#8b29e3',
   },
   font: {
     regularFont: "'Poppins', sans-serif",

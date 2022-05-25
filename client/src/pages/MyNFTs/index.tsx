@@ -7,17 +7,11 @@ import {
   Welcome,
 } from '@app/components';
 
-const Home: React.FC = () => {
+const MyNFTs: React.FC = () => {
   return (
     <div>
-      <Gradients.GradientBgWelcome>
-        <Navbar />
-        <Welcome hideForm />
-      </Gradients.GradientBgWelcome>
-      <Gradients.GradientBgServices>
-        <Services />
-      </Gradients.GradientBgServices>
       <Gradients.GradientBgTransactions>
+        <Navbar />
         <Transactions />
       </Gradients.GradientBgTransactions>
       <Gradients.GradientBgFooter>
@@ -27,4 +21,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default MyNFTs;

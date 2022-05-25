@@ -49,7 +49,7 @@ const Form = () => {
         value={amount}
       />
       <Input
-        placeholder="Keyword (Gif)"
+        placeholder="NFT Keyword (Gif)"
         name="keyword"
         type="text"
         onChange={e => handleChange(e, 'keyword')}

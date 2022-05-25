@@ -11,7 +11,11 @@ export const Container = styled.div`
   margin: auto;
 `;
 
-export const Content = styled.div`
+type ContentProps = {
+  lgAlignCenter?: boolean;
+};
+
+export const Content = styled.div<ContentProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,8 +25,12 @@ export const Content = styled.div`
 
   @media only screen and (min-width: 1020px) {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: ${({ lgAlignCenter }) =>
+      lgAlignCenter ? 'center' : 'flex-start'};
+    justify-content: ${({ lgAlignCenter }) =>
+      lgAlignCenter ? 'space-around' : 'space-between'};
     padding: 80px;
+    ${({ lgAlignCenter }) => lgAlignCenter && 'padding-bottom: 128px;'};
   }
 `;
 
@@ -47,8 +55,6 @@ export const Right = styled.div`
   width: 100%;
 
   @media only screen and (min-width: 768px) {
-    /* width: auto; */
-
     max-width: fit-content;
   }
 
@@ -60,7 +66,6 @@ export const Right = styled.div`
 export const Title = styled(TitleWithGradient)``;
 
 export const Text = styled.p`
-  /* text-align: center; */
   margin-top: 0;
   color: ${({ theme }) => theme.color.fontWhite};
   font-weight: 300;
@@ -68,15 +73,8 @@ export const Text = styled.p`
   font-size: 16px;
   line-height: 24px;
   font-family: ${({ theme }) => theme.font.regularFont};
-  /* margin-left: auto;
-  margin-right: auto; */
-
-  @media only screen and (min-width: 768px) {
-    /* width: 75%; */
-  }
 
   @media only screen and (min-width: 1020px) {
-    /* text-align: left; */
     margin-left: 0;
     margin-right: 0;
   }
@@ -154,4 +152,15 @@ export const GridContentBottomRight = styled(GridContentTopCenter)`
   border-bottom-right-radius: 16px;
 `;
 
-// Form
+export const ButtonWrapper = styled.div`
+  @media only screen and (min-width: 1024px) {
+    width: 220px;
+  }
+`;
+
+export const LoaderWrapper = styled.div`
+  @media only screen and (min-width: 1024px) {
+    width: 220px;
+    margin-bottom: 6px;
+  }
+`;
