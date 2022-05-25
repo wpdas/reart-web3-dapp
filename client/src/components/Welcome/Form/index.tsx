@@ -35,7 +35,6 @@ const Form = () => {
         placeholder="Address To"
         name="addressTo"
         type="text"
-        step="0.0001"
         onChange={e => handleChange(e, 'addressTo')}
         value={addressTo}
       />

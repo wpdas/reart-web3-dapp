@@ -7,13 +7,13 @@ export const Container = styled.div`
   background-color: #181918;
   margin: 16px;
   border-radius: 6px;
-
-  & :hover {
-    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  }
-
   min-width: 270px;
   max-width: 270px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05, 1.05);
+  }
 `;
 
 export const Content = styled.div`
@@ -81,7 +81,6 @@ export const Image = styled.img`
   border-bottom-left-radius: 0%;
   border-bottom-right-radius: 0%;
   object-fit: cover;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 
   background: rgb(139, 40, 227);
   background: linear-gradient(

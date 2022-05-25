@@ -1,21 +1,10 @@
 import { Footer, Gradients, Navbar, ArtItems } from '@app/components';
 import useFetchGifItems from '@app/hooks/useFetchGifItems';
+import useNFTCollectionInfo from '@app/hooks/useNFTCollectionInfo';
 
 const Collection: React.FC = () => {
-  const gifs = useFetchGifItems([
-    {
-      query: 'mental@seizetheawkward',
-      limit: 12,
-    },
-    {
-      query: '@corgiyolk',
-      limit: 8,
-    },
-    {
-      query: '@xdelacra',
-      limit: 8,
-    },
-  ]);
+  const NFTsCollection = useNFTCollectionInfo('collection');
+  const gifs = useFetchGifItems(NFTsCollection);
 
   return (
     <div>
@@ -23,9 +12,11 @@ const Collection: React.FC = () => {
         <Navbar />
         {gifs && <ArtItems arts={gifs} />}
       </Gradients.GradientBgTransactions>
-      <Gradients.GradientBgFooter>
-        <Footer />
-      </Gradients.GradientBgFooter>
+      {gifs && (
+        <Gradients.GradientBgFooter>
+          <Footer />
+        </Gradients.GradientBgFooter>
+      )}
     </div>
   );
 };

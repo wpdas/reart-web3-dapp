@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 import React, { createContext, useEffect, useState } from 'react';
 import { ethers } from 'ethers';
+import bigNumberToNumber from '@app/utils/bigNumberToNumber';
 import { contractAddress, transactionsContractABI } from '@app/utils/constants';
 
 type FormData = {
@@ -133,7 +134,7 @@ export const TransactionContractProvider: React.FC<{
           timestampDate: new Date(transaction.timestamp.toNumber() * 1000),
           message: transaction.message,
           keyword: transaction.keyword,
-          amount: parseInt(transaction.amount._hex) / 10 ** 18,
+          amount: bigNumberToNumber(transaction.amount),
         }),
       );
 

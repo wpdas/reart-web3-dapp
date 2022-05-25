@@ -20,10 +20,11 @@ import {
   Wrapper,
 } from './styles';
 
-type Props = GifData;
+type Props = GifData & { index?: number };
 
 const ItemCard: React.FC<Props> = ({
   id,
+  index,
   title,
   description,
   importDatetime,
@@ -32,9 +33,11 @@ const ItemCard: React.FC<Props> = ({
   const theme = useTheme();
   const fakePriceByDatetime = importDatetime.getTime().toString();
   const value = fakePriceByDatetime.slice(
-    fakePriceByDatetime.length - 2,
-    fakePriceByDatetime.length,
+    fakePriceByDatetime.length - 5,
+    fakePriceByDatetime.length - 3,
   );
+
+  const safePrice = value === '00' ? 0.0015 : Number(`0.00${value}`);
 
   return (
     <Container>
@@ -43,11 +46,13 @@ const ItemCard: React.FC<Props> = ({
           <Image src={url} alt="gif" />
 
           <ImageInfo>
-            <Keyword>{title}</Keyword>
+            <Keyword>
+              {title} #{index}
+            </Keyword>
 
             <AmountWrapper>
               <BsCoin size={20} color={theme.color.fontDark} />
-              <Amount>{value} ETH</Amount>
+              <Amount>{safePrice} ETH</Amount>
             </AmountWrapper>
 
             <Message>

@@ -27,8 +27,6 @@ export const Content = styled.div<ContentProps>`
     flex-direction: row;
     align-items: ${({ lgAlignCenter }) =>
       lgAlignCenter ? 'center' : 'flex-start'};
-    justify-content: ${({ lgAlignCenter }) =>
-      lgAlignCenter ? 'space-around' : 'space-between'};
     padding: 80px;
     ${({ lgAlignCenter }) => lgAlignCenter && 'padding-bottom: 128px;'};
   }

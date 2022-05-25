@@ -1,7 +1,14 @@
 import React from 'react';
 import { GifData } from '@app/hooks/useFetchGifItems';
 import ItemCard from './ItemCard';
-import { CardsContainer, Container, Content, Title } from './styles';
+import {
+  CardsContainer,
+  Container,
+  Content,
+  Title,
+  TitleSmall,
+  TitleWrapper,
+} from './styles';
 
 type Props = {
   arts: GifData[];
@@ -13,18 +20,21 @@ const ArtItems: React.FC<Props> = ({ arts }) => {
   return (
     <Container>
       <Content>
-        <Title>
-          Collection of NFTs <span>({arts.length} NFTs)</span>
-        </Title>
+        <TitleWrapper>
+          <Title>Collection of NFTs</Title>
+          <TitleSmall>({arts.length} NFTs)</TitleSmall>
+        </TitleWrapper>
 
         <CardsContainer>
           {hasArts &&
             arts
-              .sort(
-                (artA, artB) =>
-                  artB.importDatetime.getTime() - artA.importDatetime.getTime(),
-              )
-              .map(art => <ItemCard key={art.id} {...art} />)}
+              // .sort(
+              //   (artA, artB) =>
+              //     artB.importDatetime.getTime() - artA.importDatetime.getTime(),
+              // )
+              .map((art, index) => (
+                <ItemCard index={index} key={art.id} {...art} />
+              ))}
         </CardsContainer>
       </Content>
     </Container>

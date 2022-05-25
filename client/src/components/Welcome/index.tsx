@@ -3,6 +3,7 @@ import { BsFillPlayCircleFill, BsFillDiagram3Fill } from 'react-icons/bs';
 import useTransactionContract from '@app/hooks/useTransactionContract';
 import Button from '../Button';
 import Loader from '../Loader';
+import { H1 } from '../Typography';
 import Card from './Card';
 import Form from './Form';
 import {
@@ -71,6 +72,7 @@ const Welcome: React.FC<Props> = ({ hideForm }) => {
           </Grid>
         </Left>
         <Right>
+          {hideForm && <H1>Digital Card</H1>}
           <Card />
           {!hideForm && <Form />}
         </Right>

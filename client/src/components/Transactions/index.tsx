@@ -1,5 +1,12 @@
 import useTransactionContract from '@app/hooks/useTransactionContract';
-import { CardsContainer, Container, Content, Title } from './styles';
+import {
+  CardsContainer,
+  Container,
+  Content,
+  Title,
+  TitleSmall,
+  TitleWrapper,
+} from './styles';
 import TransactionCard from './TransactionCard';
 
 const Transactions = () => {
@@ -10,9 +17,10 @@ const Transactions = () => {
     <Container>
       <Content>
         {currentAccount ? (
-          <Title>
-            Your most recent NFTs <span>(you own {transactionCount} NFTs)</span>
-          </Title>
+          <TitleWrapper>
+            <Title>Your most recent NFTs</Title>
+            <TitleSmall>(you own {transactionCount} NFTs)</TitleSmall>
+          </TitleWrapper>
         ) : (
           <Title>Connect your account to see your NFT collection</Title>
         )}

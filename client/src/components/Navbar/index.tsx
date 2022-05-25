@@ -3,7 +3,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { BiCompass } from 'react-icons/bi';
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { useHistory } from 'react-router-dom';
-import logo from '@app/assets/images/logo.png';
+import logo from '@app/assets/images/reart-logo.svg';
 import useTransactionContract from '@app/hooks/useTransactionContract';
 import { navLinks } from '@app/utils/constants';
 import {

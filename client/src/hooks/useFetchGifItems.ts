@@ -23,7 +23,7 @@ type FetchOptions = Options[];
  * You can make more than one query
  */
 const useFetchGifItems = (
-  fetchOptions: FetchOptions,
+  fetchOptions?: FetchOptions,
   removeStringFromDescription?: string,
 ) => {
   const [gifsData, setGifsData] = useState<GifData[]>();
@@ -32,7 +32,7 @@ const useFetchGifItems = (
     const fetchGifs = async () => {
       try {
         const listOfPromisses: any[] = [];
-        fetchOptions.forEach(fetchOption => {
+        fetchOptions!.forEach(fetchOption => {
           listOfPromisses.push(
             fetch(
               `https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API_KEY}&q=${
@@ -82,7 +82,7 @@ const useFetchGifItems = (
     if (fetchOptions) {
       fetchGifs();
     }
-  }, []);
+  }, [fetchOptions?.length]);
 
   return gifsData;
 };

@@ -16,5 +16,5 @@ export const navLinks = [
   { label: 'Collection', to: '/collection', external: false },
   { label: 'My NFTs', to: '/my-nfts', external: false },
   { label: 'Git Repo', to: '/', external: false },
-  { label: 'MetaMask', to: '/', external: true },
+  { label: 'MetaMask', to: 'https://metamask.io/', external: true },
 ];

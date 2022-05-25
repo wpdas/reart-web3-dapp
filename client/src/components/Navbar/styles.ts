@@ -6,8 +6,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 18px 32px;
-  /* max-width: 1280px; */
-  max-width: 1120px;
+  max-width: 1280px;
   margin: auto;
 
   @media only screen and (min-width: 768px) {
@@ -26,7 +25,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 128px;
+  width: 146px;
   cursor: pointer;
 `;
 

@@ -20,14 +20,22 @@ export const Content = styled.div`
   width: 100%;
 `;
 
+export const TitleWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
 export const Title = styled(H2)`
   margin: 8px 0;
   display: flex;
+`;
 
-  & span {
-    font-size: 16px;
-    margin-left: 12px;
-  }
+export const TitleSmall = styled(H2)`
+  font-size: 16px;
+  margin-left: 12px;
+  margin: 8px 0 8px 12px;
+  display: flex;
 `;
 
 export const CardsContainer = styled.div`
