@@ -14,10 +14,7 @@ This project uses only a Smart Contract to make the transactions and each user (
 
 **Stack/Resources:** TypeScript, Solidity, Hardhat, Alchemy, Ethers.js, React, MetaMask, Cloud Firestore (used for views and collections control), Firebase Hosting
 
-<img alt="Solidity" src="./client/src/assets/images/solidity.png" width="36" style="margin-right: 12px;" /> <img alt="Hardhat" src="./client/src/assets/images/hardhat.webp" width="36" style="margin-right: 12px;"/>
-<img alt="Alchemy" src="./client/src/assets/images/alchemy.png" width="36" style="margin-right: 12px;"/>
-<img alt="MetaMask" src="./client/src/assets/images/metamask.webp" width="36" style="margin-right: 12px;"/>
-<img alt="React" src="./client/src/assets/images/react.png" width="36" />
+<img alt="Solidity" src="./client/src/assets/images/solidity.png" width="36" style="margin-right: 12px;" /> <img alt="Hardhat" src="./client/src/assets/images/hardhat.webp" width="36" style="margin-right: 12px;"/> <img alt="Alchemy" src="./client/src/assets/images/alchemy.png" width="36" style="margin-right: 12px;"/> <img alt="MetaMask" src="./client/src/assets/images/metamask.webp" width="36" style="margin-right: 12px;"/> <img alt="React" src="./client/src/assets/images/react.png" width="36" />
 <br/>
 
 ## :shipit: How To Use
