@@ -21,7 +21,7 @@ Then, get some testnet Ether (ETH) through the [**Goerli Faucet**](https://goerl
 
 ## Logo
 
-Logo and some aspects of the UX/UI of the application were made by [Bruno Teodoro](https://www.linkedin.com/in/brunoteodoro/)
+Logo and some aspects of the UX/UI of the application were made by [**Bruno Teodoro**](https://www.linkedin.com/in/brunoteodoro/)
 
 ## Good to Know
 
