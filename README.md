@@ -6,8 +6,7 @@ This project uses only a Smart Contract to make the transactions and each user (
 
 [**The platform is live here. Click here to access it!**](https://reart-web3-dapp.web.app/)
 
-<img alt="Screen1" src="./md/sch1.png" width="400" />
-<img alt="Screen1" src="./md/sch2.png" width="400" />
+<img alt="Screen1" src="./md/sch1.png" width="400" /> <img alt="Screen1" src="./md/sch2.png" width="400" />
 
 ## How To Use
 
@@ -15,9 +14,7 @@ You must install [**MetaMask**](https://metamask.io/) and create a wallet. It is
 
 <img alt="MetaMask Network" src="./md/md1.png" />
 
-Then, get some testnet Ether (ETH) through the [**Goerli Faucet**](https://goerlifaucet.com/) website.
-
-At this point you are ready to use the platform.
+Then, get some testnet Ether (ETH) through the [**Goerli Faucet**](https://goerlifaucet.com/) website. At this point you are ready to use the platform.
 
 ## Stack
 
