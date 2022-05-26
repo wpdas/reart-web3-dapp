@@ -29,6 +29,11 @@ export const TitleWrapper = styled.div`
 export const Title = styled(H2)`
   margin: 8px 0;
   display: flex;
+  text-align: center;
+
+  @media only screen and (min-width: 1020px) {
+    text-align: left;
+  }
 `;
 
 export const TitleSmall = styled(H2)`

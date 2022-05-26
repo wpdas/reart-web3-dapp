@@ -44,7 +44,13 @@ export const TitleWrapper = styled.div`
   align-items: flex-start;
 `;
 
-export const Title = styled(TitleWithGradient)``;
+export const Title = styled(TitleWithGradient)`
+  text-align: center;
+
+  @media only screen and (min-width: 1020px) {
+    text-align: left;
+  }
+`;
 
 export const Right = styled.div`
   display: flex;

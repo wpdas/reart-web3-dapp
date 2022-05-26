@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { TitleGradient } from '../Gradients';
 import { TitleWithGradient } from '../Typography';
 
 export const Container = styled.div`
@@ -61,7 +60,13 @@ export const Right = styled.div`
   }
 `;
 
-export const Title = styled(TitleWithGradient)``;
+export const Title = styled(TitleWithGradient)`
+  text-align: center;
+
+  @media only screen and (min-width: 1020px) {
+    text-align: left;
+  }
+`;
 
 export const Text = styled.p`
   margin-top: 0;
@@ -71,10 +76,23 @@ export const Text = styled.p`
   font-size: 16px;
   line-height: 24px;
   font-family: ${({ theme }) => theme.font.regularFont};
+  text-align: center;
+  align-self: center;
 
   @media only screen and (min-width: 1020px) {
     margin-left: 0;
     margin-right: 0;
+    text-align: left;
+    align-self: auto;
+  }
+
+  & span {
+    font-weight: 600;
+  }
+
+  & a {
+    color: ${({ theme }) => theme.color.fontWhite};
+    font-weight: 600;
   }
 `;
 
@@ -160,5 +178,33 @@ export const LoaderWrapper = styled.div`
   @media only screen and (min-width: 1024px) {
     width: 220px;
     margin-bottom: 6px;
+  }
+`;
+
+export const TechBox = styled.div`
+  display: flex;
+  margin-bottom: 16px;
+  align-self: center;
+
+  @media only screen and (min-width: 1020px) {
+    align-self: auto;
+  }
+`;
+
+export const TechImage = styled.img`
+  width: 32px;
+  padding: 10px;
+  background-color: ${({ theme }) => theme.color.opaqueBlue};
+  border-radius: 100%;
+  object-fit: contain;
+
+  margin-right: 8px;
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media only screen and (min-width: 424px) {
+    width: 42px;
+    padding: 14px;
   }
 `;
