@@ -6,6 +6,7 @@ This project uses only a Smart Contract to make the transactions and each user (
 
 [**The platform is live here. Click here to access it!**](https://reart-web3-dapp.web.app/)
 
+<img alt="Screen1" src="./md/sch1.png" />
 <img alt="Screen1" src="./md/sch2.png" />
 
 ## How To Use
