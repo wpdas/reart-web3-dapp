@@ -4,6 +4,8 @@ Reart is a project focused on Web3. The idea was to create a Demo Platform where
 
 This project uses only a Smart Contract to make the transactions and each user (and user resource) is identified by the information collected from the transactions by the blockchain. Remember, it's a Demo application.
 
+**Stack/Resources:** TypeScript, Solidity, Hardhat, Alchemy, Ethers.js, React, MetaMask, Cloud Firestore (used for views and collections control), Firebase Hosting
+
 [**The platform is live here. Click here to access it!**](https://reart-web3-dapp.web.app/)
 
 <img alt="Screen1" src="./md/sch1.png" />
@@ -17,12 +19,10 @@ You must install [**MetaMask**](https://metamask.io/) and create a wallet. It is
 
 Then, get some testnet Ether (ETH) through the [**Goerli Faucet**](https://goerlifaucet.com/) website. At this point you are ready to use the platform.
 
-## Stack
-
-**Stack/Resources:** TypeScript, Solidity, Hardhat, Alchemy, Ethers.js, React, MetaMask, Cloud Firestore (used for views and collections control), Firebase Hosting
-
-<img alt="Solidity" src="./client/src/assets/images/solidity.png" width="36" style="margin-right: 12px;" /> <img alt="Hardhat" src="./client/src/assets/images/hardhat.webp" width="36" style="margin-right: 12px;"/> <img alt="Alchemy" src="./client/src/assets/images/alchemy.png" width="36" style="margin-right: 12px;"/> <img alt="MetaMask" src="./client/src/assets/images/metamask.webp" width="36" style="margin-right: 12px;"/> <img alt="React" src="./client/src/assets/images/react.png" width="36" />
-
 ## Logo
 
 Logo and some aspects of the UX/UI of the application were made by [Bruno Teodoro](https://www.linkedin.com/in/brunoteodoro/)
+
+## Good to Know
+
+Here's my main source of study: [**JavaScript Mastery**](https://www.youtube.com/c/JavaScriptMastery)
