@@ -12,12 +12,9 @@ This project uses only a Smart Contract to make the transactions and each user (
 <br/>
 <br/>
 
-**Stack/Resources:** TypeScript, Solidity, Hardhat, Alchemy, Ethers.js, React, MetaMask, Cloud Firestore (used for views and collections control), Firebase Hosting
-
 <img alt="Solidity" src="./client/src/assets/images/solidity.png" width="36" style="margin-right: 12px;" /> <img alt="Hardhat" src="./client/src/assets/images/hardhat.webp" width="36" style="margin-right: 12px;"/> <img alt="Alchemy" src="./client/src/assets/images/alchemy.png" width="36" style="margin-right: 12px;"/> <img alt="MetaMask" src="./client/src/assets/images/metamask.webp" width="36" style="margin-right: 12px;"/> <img alt="React" src="./client/src/assets/images/react.png" width="36" />
-<br/>
 
-## :shipit: How To Use
+## How To Use
 
 You must install [**MetaMask**](https://metamask.io/) and create a wallet. It is also necessary that you use the **Goerli Test Network** (this platform only works with this network):
 
@@ -26,6 +23,10 @@ You must install [**MetaMask**](https://metamask.io/) and create a wallet. It is
 Then, get some testnet Ether (ETH) through the [**Goerli Faucet**](https://goerlifaucet.com/) website.
 
 At this point you are ready to use the platform.
+
+## Stack
+
+**Stack/Resources:** TypeScript, Solidity, Hardhat, Alchemy, Ethers.js, React, MetaMask, Cloud Firestore (used for views and collections control), Firebase Hosting
 
 ## Logo
 
