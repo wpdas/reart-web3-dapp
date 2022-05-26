@@ -48,7 +48,7 @@ const TransactionCard: React.FC<Props> = ({
 
   const shortenedAddressFrom = shortenAddress(addressFrom, 4);
   const shortenedAddressTo = shortenAddress(addressTo, 4);
-  const shortenedMessage = shortenMessage(message);
+  const shortenedMessage = shortenMessage(message, 20);
 
   const clickItemHandler = () => {
     history.push(`/my-nft/${keyword}`);
@@ -84,12 +84,12 @@ const TransactionCard: React.FC<Props> = ({
 
             {message && (
               <Message>
-                <span>Message:</span> {shortenedMessage}
+                <span>Description:</span> {shortenedMessage}
               </Message>
             )}
 
             <Timestamp>
-              <span>Timestamp:</span> {timestamp}
+              <span>Purchase date:</span> {timestamp}
             </Timestamp>
           </ImageInfo>
         </Wrapper>
