@@ -25,4 +25,4 @@ Logo and some aspects of the UX/UI of the application were made by [**Bruno Teod
 
 ## Good to Know
 
-Here's my main source of study: [**JavaScript Mastery**](https://www.youtube.com/c/JavaScriptMastery)
+Here's my main source of study about Web3 stuff: [**JavaScript Mastery**](https://www.youtube.com/c/JavaScriptMastery) & [**Fireship**](https://fireship.io/lessons/web3-solidity-hardhat-react-tutorial/)
