@@ -8,6 +8,7 @@ import useEthToUsd from '@app/hooks/useEthToUsd';
 import { GifData } from '@app/hooks/useFetchGifItems';
 import useNFTViewInfo from '@app/hooks/useNFTViewInfo';
 import getFakePriceByDatetime from '@app/utils/getFakePriceByDatetime';
+import shortenMessage from '@app/utils/shortenMessage';
 import {
   Amount,
   AmountWrapper,
@@ -40,6 +41,7 @@ const ItemCard: React.FC<Props> = ({
 
   const price = getFakePriceByDatetime(importDatetime);
   const usdConversion = useEthToUsd(price);
+  const shortenedDesc = shortenMessage(description, 54);
 
   const clickItemHandler = () => {
     history.push(`/details/${id}`);
@@ -77,7 +79,7 @@ const ItemCard: React.FC<Props> = ({
             </Creator>
 
             <Message>
-              <span>Description:</span> {description}
+              <span>Description:</span> {shortenedDesc}
             </Message>
           </ImageInfo>
         </Wrapper>
