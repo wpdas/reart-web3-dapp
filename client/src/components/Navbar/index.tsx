@@ -4,6 +4,7 @@ import { BiCompass } from 'react-icons/bi';
 import { HiMenuAlt4 } from 'react-icons/hi';
 import { useHistory } from 'react-router-dom';
 import logo from '@app/assets/images/reart-logo.svg';
+import useProviderInfo from '@app/hooks/useProviderInfo';
 import useTransactionContract from '@app/hooks/useTransactionContract';
 import { navLinks } from '@app/utils/constants';
 import {
@@ -25,6 +26,7 @@ const Navbar = () => {
   const [showEthAvailable, setShowEthAvailable] = useState(ethVisible === '1');
   const [toggleMenu, setToggleMenu] = useState(false);
   const { loading, currentAccount, connectWallet } = useTransactionContract();
+  const { walletBalance } = useProviderInfo();
   const history = useHistory();
 
   const onClickConnectHandler = () => {
@@ -76,7 +78,7 @@ const Navbar = () => {
                   <span>
                     {showEthAvailable ? (
                       <>
-                        <AiFillEye size={18} /> ETH: 0.0260
+                        <AiFillEye size={18} /> ETH: {walletBalance}
                       </>
                     ) : (
                       <>
