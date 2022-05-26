@@ -22,20 +22,8 @@ npx hardhat
 
 ## CD - Firebase
 
-recursos: Firestore Database, Hosting
+recursos: Cloud Firestore, Hosting
 
 Root package.json usa o Node v14.18.0 para dar suporte aos recursos necessários do Firebase.
 
 Usando Firebase integrado com github actions para fazer deploy toda vez que a branch main for atualizada.
-
-## Logo
-
-- Reart Logo - by [Bruno Teodoro](https://www.linkedin.com/in/brunoteodoro/)
-
-## TODO:
-
-- Descrever no README os recursos como telas, o que cada uma faz e etc
-
-OBS: Esse app esta usando o mesmo contrato e filtrando os Owners de cada item pelo endereço presente nas transações. O correto seria ter um contrato para cada item.
-
-- Repo description
