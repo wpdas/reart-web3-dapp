@@ -1,11 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-console */
 
-/**
- * TODO:
- * ethereum.on('disconnect', handler: (error: ProviderRpcError) => void);
- */
-
 import React, { createContext, useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import bigNumberToNumber from '@app/utils/bigNumberToNumber';
@@ -372,6 +367,17 @@ export const TransactionContractProvider: React.FC<{
 
   useEffect(() => {
     checkIfWalletIsConnected();
+  }, []);
+
+  useEffect(() => {
+    if (ethereum) {
+      // On disconnect
+      ethereum.on('accountsChanged', (accounts: string[]) => {
+        if (!accounts.length) {
+          setCurrentAccount(undefined);
+        }
+      });
+    }
   }, []);
 
   return (

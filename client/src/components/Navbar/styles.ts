@@ -30,6 +30,7 @@ export const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   max-width: 1280px;
+  margin: auto;
   padding: 9px 32px;
   width: 100%;
 `;
