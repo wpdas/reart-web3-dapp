@@ -1,24 +1,44 @@
 import styled from '@emotion/styled';
 import * as glassmorphisms from '../glassmorphisms';
 
+export const SafeMargin = styled.div`
+  width: 100%;
+  height: 52px;
+
+  @media only screen and (min-width: 956px) {
+    height: 92px;
+  }
+`;
+
 export const Nav = styled.nav`
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  background-color: #000000;
+  z-index: 99;
+
+  @media only screen and (min-width: 956px) {
+    padding-top: 0px;
+  }
+`;
+
+export const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 32px;
   max-width: 1280px;
-  margin: auto;
-
-  @media only screen and (min-width: 932px) {
-    padding-top: 0px;
-  }
+  padding: 9px 32px;
+  width: 100%;
 `;
 
 export const ImageWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media only screen and (min-width: 932px) {
+  @media only screen and (min-width: 956px) {
     flex: 0.5;
     justify-content: center;
   }
@@ -26,7 +46,12 @@ export const ImageWrapper = styled.div`
 
 export const Image = styled.img`
   width: 146px;
+  padding-top: 6px;
   cursor: pointer;
+
+  @media only screen and (min-width: 956px) {
+    padding-top: 0;
+  }
 `;
 
 type ListProps = {
@@ -42,7 +67,7 @@ export const List = styled.ul<ListProps>`
   color: ${({ theme }) => theme.color.fontWhite};
   margin: 0;
 
-  @media only screen and (min-width: 932px) {
+  @media only screen and (min-width: 956px) {
     flex-direction: row;
     display: flex;
   }
@@ -68,7 +93,7 @@ export const ListMobile = styled.ul`
     align-self: flex-start;
   }
 
-  @media only screen and (min-width: 932px) {
+  @media only screen and (min-width: 956px) {
     display: none;
   }
 `;
@@ -102,7 +127,6 @@ export const ListItem = styled.li<ListItemProps>`
   font-family: ${({ theme }) => theme.font.regularFont};
   margin: 16px;
   cursor: pointer;
-  ${({ usePurpleBg }) => usePurpleBg && 'cursor: default;'};
 
   &:hover {
     background-color: ${({ theme, withBg, usePurpleBg }) =>
@@ -114,13 +138,21 @@ export const ListItem = styled.li<ListItemProps>`
   }
 
   ${({ bold }) => bold && 'font-weight: 600;'};
+
+  & span {
+    display: flex;
+    align-items: center;
+    & svg {
+      margin-right: 6px;
+    }
+  }
 `;
 
 export const MobileMenu = styled.div`
   display: flex;
   position: relative;
 
-  @media only screen and (min-width: 932px) {
+  @media only screen and (min-width: 956px) {
     display: none;
   }
 
@@ -128,7 +160,7 @@ export const MobileMenu = styled.div`
     color: ${({ theme }) => theme.color.fontWhite};
     cursor: pointer;
 
-    @media only screen and (min-width: 932px) {
+    @media only screen and (min-width: 956px) {
       flex-direction: row;
       display: none;
     }

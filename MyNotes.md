@@ -34,10 +34,9 @@ Usando Firebase integrado com github actions para fazer deploy toda vez que a br
 
 ## TODO:
 
-- Views (nos detalhes e nos cards das collections)
-- Comprar (Details)
-- Exibir Cards comprados (usando dados atualizados como image ID)
-
 - Descrever no README os recursos como telas, o que cada uma faz e etc
 
 OBS: Esse app esta usando o mesmo contrato e filtrando os Owners de cada item pelo endereço presente nas transações. O correto seria ter um contrato para cada item.
+
+- Evento ao desconectar
+- Repo description
