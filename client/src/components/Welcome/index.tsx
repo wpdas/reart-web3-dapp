@@ -1,4 +1,3 @@
-import React from 'react';
 import { BsFillPlayCircleFill, BsFillDiagram3Fill } from 'react-icons/bs';
 import alchemy from '@app/assets/images/alchemy.png';
 import hardhat from '@app/assets/images/hardhat.webp';
@@ -10,7 +9,6 @@ import Button from '../Button';
 import Loader from '../Loader';
 import { H1 } from '../Typography';
 import Card from './Card';
-import Form from './Form';
 import {
   Container,
   Content,
@@ -31,16 +29,12 @@ import {
   TechImage,
 } from './styled';
 
-type Props = {
-  hideForm?: boolean;
-};
-
-const Welcome: React.FC<Props> = ({ hideForm }) => {
+const Welcome = () => {
   const { loading, connectWallet, currentAccount } = useTransactionContract();
 
   return (
     <Container>
-      <Content lgAlignCenter={hideForm}>
+      <Content lgAlignCenter>
         <Left>
           <Title>
             Buy NFTs <br /> across the world
@@ -94,9 +88,8 @@ const Welcome: React.FC<Props> = ({ hideForm }) => {
           </Grid>
         </Left>
         <Right>
-          {hideForm && <H1>Digital Card</H1>}
+          <H1>Digital Card</H1>
           <Card />
-          {!hideForm && <Form />}
         </Right>
       </Content>
     </Container>

@@ -90,6 +90,10 @@ const ArtDetails: React.FC<ArtDetailsProps> = ({ isOwner }) => {
     }
   }, [hasError, status]);
 
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, []);
+
   const seeCollectionClickHandler = () => {
     history.push('/collection');
   };
@@ -110,20 +114,22 @@ const ArtDetails: React.FC<ArtDetailsProps> = ({ isOwner }) => {
         <Left>{gifUrl && <Image src={gifUrl} alt="gif" />}</Left>
         <Right>
           <ImageId>#{id}</ImageId>
-          <InfoBox>
-            <InfoWrapper>
-              <Info>
-                Owned by{' '}
-                <a href={`https://giphy.com/${creator}`} target="_blank">
-                  @{creator}
-                </a>
-              </Info>
-            </InfoWrapper>
-            <InfoWrapper>
-              <BsFillEyeFill size={20} color={theme.color.white} />
-              <Info>{views} views</Info>
-            </InfoWrapper>
-          </InfoBox>
+          {!isOwner && (
+            <InfoBox>
+              <InfoWrapper>
+                <Info>
+                  Owned by{' '}
+                  <a href={`https://giphy.com/${creator}`} target="_blank">
+                    @{creator}
+                  </a>
+                </Info>
+              </InfoWrapper>
+              <InfoWrapper>
+                <BsFillEyeFill size={20} color={theme.color.white} />
+                <Info>{views} views</Info>
+              </InfoWrapper>
+            </InfoBox>
+          )}
 
           <Line />
 

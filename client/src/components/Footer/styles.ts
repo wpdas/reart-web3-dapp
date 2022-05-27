@@ -29,6 +29,7 @@ export const LogoWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 0;
+  cursor: pointer;
 
   @media only screen and (min-width: 932px) {
     margin-right: 128px;

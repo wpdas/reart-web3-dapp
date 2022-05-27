@@ -1,7 +1,6 @@
 import {
   Footer,
   Gradients,
-  Navbar,
   Services,
   Transactions,
   Welcome,
@@ -11,8 +10,7 @@ const Home: React.FC = () => {
   return (
     <div>
       <Gradients.GradientBgWelcome>
-        <Navbar />
-        <Welcome hideForm />
+        <Welcome />
       </Gradients.GradientBgWelcome>
       <Gradients.GradientBgServices>
         <Services />

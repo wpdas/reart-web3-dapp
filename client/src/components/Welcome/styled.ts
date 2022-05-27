@@ -193,6 +193,7 @@ export const TechBox = styled.div`
 
 export const TechImage = styled.img`
   width: 32px;
+  height: 32px;
   padding: 10px;
   background-color: ${({ theme }) => theme.color.opaqueBlue};
   border-radius: 100%;
@@ -205,6 +206,7 @@ export const TechImage = styled.img`
 
   @media only screen and (min-width: 424px) {
     width: 42px;
+    height: 42px;
     padding: 14px;
   }
 `;

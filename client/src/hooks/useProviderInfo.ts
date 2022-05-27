@@ -5,10 +5,10 @@ import useTransactionContract from './useTransactionContract';
 
 const useProviderInfo = () => {
   const [walletBalance, setWalletBalance] = useState('');
-  const { currentAccount } = useTransactionContract();
+  const { currentAccount, processingTransaction } = useTransactionContract();
 
   useEffect(() => {
-    if (!!currentAccount) {
+    if (!!currentAccount && !processingTransaction) {
       (async () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const balance = await provider.getBalance(currentAccount);
@@ -16,7 +16,7 @@ const useProviderInfo = () => {
         setWalletBalance(decimalBalance);
       })();
     }
-  }, [currentAccount]);
+  }, [currentAccount, processingTransaction]);
 
   return {
     walletBalance,

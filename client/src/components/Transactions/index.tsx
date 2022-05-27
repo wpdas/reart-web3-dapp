@@ -4,14 +4,12 @@ import {
   Container,
   Content,
   Title,
-  TitleSmall,
   TitleWrapper,
 } from './styles';
 import TransactionCard from './TransactionCard';
 
 const Transactions = () => {
-  const { currentAccount, transactions, transactionCount } =
-    useTransactionContract();
+  const { currentAccount, transactions } = useTransactionContract();
 
   return (
     <Container>
@@ -24,7 +22,6 @@ const Transactions = () => {
         ) : (
           <Title>Connect your account to see your NFT collection</Title>
         )}
-
         <CardsContainer>
           {transactions &&
             transactions

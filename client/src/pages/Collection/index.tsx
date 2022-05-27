@@ -1,4 +1,4 @@
-import { Footer, Gradients, Navbar, ArtItems } from '@app/components';
+import { Footer, Gradients, ArtItems } from '@app/components';
 import useFetchGifItems from '@app/hooks/useFetchGifItems';
 import useNFTCollectionInfo from '@app/hooks/useNFTCollectionInfo';
 
@@ -9,7 +9,6 @@ const Collection: React.FC = () => {
   return (
     <div>
       <Gradients.GradientBgTransactions>
-        <Navbar />
         {gifs && <ArtItems arts={gifs} />}
       </Gradients.GradientBgTransactions>
       {gifs && <Footer />}
