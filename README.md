@@ -6,23 +6,25 @@ This project uses only a Smart Contract to make the transactions and each user (
 
 **Stack/Resources:** TypeScript, Solidity, Hardhat, Alchemy, Ethers.js, React, MetaMask, Cloud Firestore (used for views and collections control), Firebase Hosting
 
-[**The platform is live here. Click here to access it!**](https://reart-web3-dapp.web.app/)
+<a href="https://reart-web3-dapp.web.app/" target="_blank">**The platform is live here. Click here to access it!**</a>
+
+You can also watch this presentation in English: <a href="https://drive.google.com/file/d/16dZqnWxNsexzO9KicCh7Akyte4iRiycw/view?usp=sharing" target="_blank">**Reart: A short presentation**</a>.
 
 <img alt="Screen1" src="./md/sch1.png" />
 <img alt="Screen1" src="./md/sch2.png" />
 
 ## How To Use
 
-You must install [**MetaMask**](https://metamask.io/) and create a wallet. It is also necessary that you use the **Goerli Test Network** (this platform only works with this network):
+You must install <a href="https://metamask.io/" target="_blank">**MetaMask**</a> and create a wallet. It is also necessary that you use the **Goerli Test Network** (this platform only works with this network):
 
 <img alt="MetaMask Network" src="./md/md1.png" />
 
-Then, get some testnet Ether (ETH) through the [**Goerli Faucet**](https://goerlifaucet.com/) website. At this point you are ready to use the platform.
-
-## Logo
-
-Logo and some aspects of the UX/UI of the application were made by [**Bruno Teodoro**](https://www.linkedin.com/in/brunoteodoro/)
+Then, get some testnet Ether (ETH) through the <a href="https://goerlifaucet.com/" target="_blank">**Goerli Faucet**</a> website. At this point you are ready to use the platform.
 
 ## Good to Know
 
-Here's my main source of study about Web3 stuff: [**JavaScript Mastery**](https://www.youtube.com/c/JavaScriptMastery) & [**Fireship**](https://fireship.io/lessons/web3-solidity-hardhat-react-tutorial/)
+1 - Logo and some aspects of the UX/UI of the application were made by <a href="https://www.linkedin.com/in/brunoteodoro/" target="_blank">**Bruno Teodoro**</a>.
+
+2 - The review of the demo product and presentation was made by <a href="https://www.linkedin.com/in/lucas-alves-s/" target="_blank">**Lucas Souza**</a>.
+
+3 - Here's my main source of study about Web3 stuff: <a href="https://www.youtube.com/watch?v=Wn_Kb3MR_cU" target="_blank">**JavaScript Mastery**</a>, <a href="https://fireship.io/lessons/web3-solidity-hardhat-react-tutorial/" target="_blank">**Fireship**</a> and this <a href="https://www.udemy.com/course/blockchain-developer/" target="_blank">**Blockchain Developer**</a> course on Udemy.
